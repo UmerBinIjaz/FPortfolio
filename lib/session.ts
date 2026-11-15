@@ -68,19 +68,9 @@ export async function createAdminSession(params: {
   userAgent?: string | null;
   ipAddress?: string | null;
 }) {
-  // Validate AUTH_SECRET before creating the database record.
   const rawToken = crypto.randomBytes(32).toString('hex');
-
-  const expiresAt = new Date(Date.now() + SESSION_DURATION_MS);
-
-  const cookieValue = encodeSessionCookie({
-    token: rawToken,
-    adminId: params.adminId,
-    role: params.role,
-    exp: expiresAt.getTime(),
-  });
-
   const tokenHash = hashSessionToken(rawToken);
+  const expiresAt = new Date(Date.now() + SESSION_DURATION_MS);
 
   await prisma.session.create({
     data: {
@@ -92,8 +82,14 @@ export async function createAdminSession(params: {
     },
   });
 
-  const cookieStore = await cookies();
+  const cookieValue = encodeSessionCookie({
+    token: rawToken,
+    adminId: params.adminId,
+    role: params.role,
+    exp: expiresAt.getTime(),
+  });
 
+  const cookieStore = await cookies();
   cookieStore.set(SESSION_COOKIE_NAME, cookieValue, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
