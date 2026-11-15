@@ -1,0 +1,520 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+}
+
+enum PublicationStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum MessageStatus {
+  UNREAD
+  READ
+  ARCHIVED
+}
+
+enum MediaType {
+  IMAGE
+  PDF
+  DOCUMENT
+  PRESENTATION
+  VIDEO
+}
+
+model Admin {
+  id           String            @id @default(uuid()) @db.Uuid
+  email        String            @unique
+  passwordHash String
+  name         String
+  role         AdminRole         @default(ADMIN)
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+  sessions     Session[]
+  mediaAssets  MediaAsset[]
+  activities   ContentActivity[]
+}
+
+model Session {
+  id        String   @id @default(uuid()) @db.Uuid
+  tokenHash String   @unique
+  adminId   String   @db.Uuid
+  admin     Admin    @relation(fields: [adminId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  userAgent String?
+  ipAddress String?
+  createdAt DateTime @default(now())
+
+  @@index([adminId])
+  @@index([expiresAt])
+}
+
+model Profile {
+  id                 String   @id @default(uuid()) @db.Uuid
+  fullName           String
+  title              String
+  tagline            String
+  location           String
+  email              String
+  phone              String
+  summary            String   @db.Text
+  bio                String   @db.Text
+  teachingPhilosophy String   @db.Text
+  personalValues     String[] @default([])
+  futureGoals        String[] @default([])
+  professionalVision String   @db.Text
+  languages          String[] @default([])
+  profileImageUrl    String?
+  profileImageId     String?
+  cvDocumentUrl      String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model SiteSettings {
+  id                 String   @id @default(uuid()) @db.Uuid
+  siteTitle          String
+  tagline            String
+  metaDescription    String   @db.Text
+  footerText         String
+  contactEmail       String
+  contactPhone       String
+  location           String
+  linkedinUrl        String?
+  githubUrl          String?
+  twitterUrl         String?
+  instagramUrl       String?
+  showResumeDownload Boolean  @default(true)
+  updatedAt          DateTime @updatedAt
+}
+
+model HomeContent {
+  id                      String   @id @default(uuid()) @db.Uuid
+  heroHeadline            String
+  heroTitle               String
+  heroTagline             String
+  heroIntro               String   @db.Text
+  aboutPreviewTitle       String
+  aboutPreviewText        String   @db.Text
+  areasOfInterest         Json     @default("[]")
+  academicActivitiesTitle String
+  academicActivitiesText  String   @db.Text
+  contactCtaTitle         String
+  contactCtaText          String   @db.Text
+  updatedAt               DateTime @updatedAt
+}
+
+model Education {
+  id           String            @id @default(uuid()) @db.Uuid
+  institution  String
+  degree       String
+  fieldOfStudy String?
+  startYear    String
+  endYear      String?
+  isCurrent    Boolean           @default(false)
+  location     String?
+  description  String?           @db.Text
+  sortOrder    Int               @default(0)
+  status       PublicationStatus @default(PUBLISHED)
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+model Skill {
+  id          String            @id @default(uuid()) @db.Uuid
+  name        String
+  category    String            @default("Core")
+  description String?
+  sortOrder   Int               @default(0)
+  status      PublicationStatus @default(PUBLISHED)
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+model Training {
+  id          String            @id @default(uuid()) @db.Uuid
+  title       String
+  provider    String
+  duration    String
+  period      String?
+  description String            @db.Text
+  highlights  String[]          @default([])
+  sortOrder   Int               @default(0)
+  status      PublicationStatus @default(PUBLISHED)
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+model PortfolioProject {
+  id               String            @id @default(uuid()) @db.Uuid
+  title            String
+  slug             String            @unique
+  summary          String            @db.Text
+  description      String            @db.Text
+  category         String
+  projectDate      DateTime?
+  thumbnailUrl     String?
+  thumbnailId      String?
+  tools            String[]          @default([])
+  learningOutcomes String[]          @default([])
+  externalUrl      String?
+  documentUrl      String?
+  documentName     String?
+  featured         Boolean           @default(false)
+  sortOrder        Int               @default(0)
+  status           PublicationStatus @default(DRAFT)
+  deletedAt        DateTime?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  media            ProjectMedia[]
+
+  @@index([status, featured, sortOrder])
+  @@index([category])
+  @@index([deletedAt])
+}
+
+model ProjectMedia {
+  id        String           @id @default(uuid()) @db.Uuid
+  projectId String           @db.Uuid
+  project   PortfolioProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  mediaUrl  String
+  publicId  String?
+  mediaType MediaType        @default(IMAGE)
+  caption   String?
+  sortOrder Int              @default(0)
+  createdAt DateTime         @default(now())
+
+  @@index([projectId, sortOrder])
+}
+
+model Webinar {
+  id              String             @id @default(uuid()) @db.Uuid
+  title           String
+  slug            String             @unique
+  organizer       String
+  speaker         String?
+  eventDate       DateTime?
+  duration        String?
+  category        String
+  description     String             @db.Text
+  thumbnailUrl    String?
+  thumbnailId     String?
+  topicsDiscussed String[]           @default([])
+  knowledgeGained String[]           @default([])
+  certificateUrl  String?
+  certificateId   String?
+  featured        Boolean            @default(false)
+  sortOrder       Int                @default(0)
+  status          PublicationStatus  @default(DRAFT)
+  deletedAt       DateTime?
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  reflection      WebinarReflection?
+
+  @@index([status, featured, sortOrder])
+  @@index([category])
+  @@index([deletedAt])
+}
+
+model WebinarReflection {
+  id         String   @id @default(uuid()) @db.Uuid
+  webinarId  String   @unique @db.Uuid
+  webinar    Webinar  @relation(fields: [webinarId], references: [id], onDelete: Cascade)
+  whatText   String   @db.Text
+  soWhatText String   @db.Text
+  nowWhatText String  @db.Text
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Symposium {
+  id                 String            @id @default(uuid()) @db.Uuid
+  eventTitle         String
+  slug               String            @unique
+  organizer          String
+  eventDate          DateTime?
+  formatOrLocation   String
+  presentationTitle  String
+  presentationTopic  String
+  description        String            @db.Text
+  participationRole  String
+  slidesUrl          String?
+  slidesName         String?
+  externalVideoUrl   String?
+  feedback           String?           @db.Text
+  learningOutcomes   String[]          @default([])
+  personalReflection String?           @db.Text
+  certificateUrl     String?
+  certificateId      String?
+  featured           Boolean           @default(false)
+  sortOrder          Int               @default(0)
+  status             PublicationStatus @default(DRAFT)
+  deletedAt          DateTime?
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+  media              SymposiumMedia[]
+
+  @@index([status, featured, sortOrder])
+  @@index([deletedAt])
+}
+
+model SymposiumMedia {
+  id          String    @id @default(uuid()) @db.Uuid
+  symposiumId String    @db.Uuid
+  symposium   Symposium @relation(fields: [symposiumId], references: [id], onDelete: Cascade)
+  mediaUrl    String
+  publicId    String?
+  mediaType   MediaType @default(IMAGE)
+  title       String?
+  caption     String?
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+
+  @@index([symposiumId, sortOrder])
+}
+
+model TeachingLessonPlan {
+  id                 String            @id @default(uuid()) @db.Uuid
+  title              String
+  slug               String            @unique
+  subjectTopic       String
+  targetLevel        String
+  learningObjectives String[]          @default([])
+  duration           String
+  methodology        String
+  requiredResources  String[]          @default([])
+  warmUpActivity     String            @db.Text
+  lessonDevelopment  String            @db.Text
+  studentActivities  String            @db.Text
+  assessment         String            @db.Text
+  homework           String?           @db.Text
+  teacherReflection  String?           @db.Text
+  documentUrl        String?
+  documentName       String?
+  featured           Boolean           @default(false)
+  sortOrder          Int               @default(0)
+  status             PublicationStatus @default(DRAFT)
+  deletedAt          DateTime?
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+
+  @@index([status, featured, sortOrder])
+  @@index([deletedAt])
+}
+
+model TeachingDemonstration {
+  id                String            @id @default(uuid()) @db.Uuid
+  title             String
+  slug              String            @unique
+  topic             String
+  description       String            @db.Text
+  videoUrl          String?
+  externalVideoUrl  String?
+  thumbnailUrl      String?
+  thumbnailId       String?
+  galleryUrls       String[]          @default([])
+  demonstrationDate DateTime?
+  featured          Boolean           @default(false)
+  sortOrder         Int               @default(0)
+  status            PublicationStatus @default(DRAFT)
+  deletedAt         DateTime?
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+
+  @@index([status, featured, sortOrder])
+  @@index([deletedAt])
+}
+
+model TeachingResource {
+  id          String            @id @default(uuid()) @db.Uuid
+  title       String
+  slug        String            @unique
+  category    String
+  description String            @db.Text
+  targetLevel String?
+  fileUrl     String?
+  fileId      String?
+  fileType    String?
+  externalUrl String?
+  featured    Boolean           @default(false)
+  sortOrder   Int               @default(0)
+  status      PublicationStatus @default(DRAFT)
+  deletedAt   DateTime?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@index([status, category, sortOrder])
+  @@index([deletedAt])
+}
+
+model TeachingReflection {
+  id                 String            @id @default(uuid()) @db.Uuid
+  title              String
+  slug               String            @unique
+  context            String
+  whatText           String            @db.Text
+  soWhatText         String            @db.Text
+  nowWhatText        String            @db.Text
+  methodologyStudied String?
+  reflectionDate     DateTime?
+  featured           Boolean           @default(false)
+  sortOrder          Int               @default(0)
+  status             PublicationStatus @default(DRAFT)
+  deletedAt          DateTime?
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+
+  @@index([status, sortOrder])
+  @@index([deletedAt])
+}
+
+model Achievement {
+  id              String            @id @default(uuid()) @db.Uuid
+  title           String
+  slug            String            @unique
+  issuingOrg      String
+  category        String
+  issueDate       DateTime?
+  description     String            @db.Text
+  verificationUrl String?
+  featured        Boolean           @default(false)
+  sortOrder       Int               @default(0)
+  status          PublicationStatus @default(DRAFT)
+  deletedAt       DateTime?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  certificates    Certificate[]
+
+  @@index([status, category, featured, sortOrder])
+  @@index([deletedAt])
+}
+
+model Certificate {
+  id              String            @id @default(uuid()) @db.Uuid
+  title           String
+  issuingOrg      String
+  issueDate       DateTime?
+  fileUrl         String
+  publicId        String?
+  fileType        String            @default("IMAGE")
+  verificationUrl String?
+  category        String
+  featured        Boolean           @default(false)
+  sortOrder       Int               @default(0)
+  status          PublicationStatus @default(PUBLISHED)
+  achievementId   String?           @db.Uuid
+  achievement     Achievement?      @relation(fields: [achievementId], references: [id], onDelete: SetNull)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  @@index([status, category, sortOrder])
+  @@index([achievementId])
+}
+
+model BlogCategory {
+  id          String     @id @default(uuid()) @db.Uuid
+  name        String
+  slug        String     @unique
+  description String?
+  sortOrder   Int        @default(0)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  posts       BlogPost[]
+}
+
+model BlogPost {
+  id                 String            @id @default(uuid()) @db.Uuid
+  title              String
+  slug               String            @unique
+  featuredImageUrl   String?
+  featuredImageId    String?
+  summary            String            @db.Text
+  content            String            @db.Text
+  categoryId         String?           @db.Uuid
+  category           BlogCategory?     @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  tags               String[]          @default([])
+  authorName         String            @default("Faryal")
+  readingTimeMinutes Int               @default(3)
+  publishedAt        DateTime?
+  featured           Boolean           @default(false)
+  sortOrder          Int               @default(0)
+  status             PublicationStatus @default(DRAFT)
+  deletedAt          DateTime?
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+
+  @@index([status, featured, publishedAt])
+  @@index([categoryId])
+  @@index([deletedAt])
+}
+
+model ContactMessage {
+  id         String        @id @default(uuid()) @db.Uuid
+  fullName   String
+  email      String
+  subject    String
+  message    String        @db.Text
+  status     MessageStatus @default(UNREAD)
+  ipHash     String?
+  adminNotes String?       @db.Text
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+
+  @@index([status, createdAt])
+}
+
+model MediaAsset {
+  id           String    @id @default(uuid()) @db.Uuid
+  title        String
+  fileName     String
+  url          String
+  publicId     String    @unique
+  resourceType String
+  mediaType    MediaType
+  mimeType     String
+  format       String?
+  bytes        Int       @default(0)
+  width        Int?
+  height       Int?
+  folder       String    @default("faryal-portfolio")
+  category     String    @default("General")
+  uploadedById String?   @db.Uuid
+  uploadedBy   Admin?    @relation(fields: [uploadedById], references: [id], onDelete: SetNull)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([mediaType, category])
+  @@index([createdAt])
+}
+
+model ContentActivity {
+  id          String   @id @default(uuid()) @db.Uuid
+  entityType  String
+  entityId    String
+  entityTitle String
+  action      String
+  summary     String?
+  adminId     String?  @db.Uuid
+  admin       Admin?   @relation(fields: [adminId], references: [id], onDelete: SetNull)
+  createdAt   DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([entityType])
+}
