@@ -68,7 +68,15 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error) {
-    console.error('[Auth Login Error]:', error instanceof Error ? error.message : 'Unknown error');
-    return NextResponse.json({ error: 'Unable to complete sign in.' }, { status: 500 });
+    console.error('[Auth Login Error]', {
+      name: error instanceof Error ? error.name : 'Unknown',
+      message: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    });
+
+    return NextResponse.json(
+      { error: 'Unable to complete sign in. Please check server logs.' },
+      { status: 500 }
+    );
   }
 }
