@@ -242,63 +242,63 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
       {/* Profile & Biography Form */}
       <form
         onSubmit={handleSaveProfile}
-        className="bg-white border border-[#172554]/10 rounded-lg p-6 space-y-5"
+        className="bg-white border border-[#4C0519]/10 rounded-lg p-6 space-y-5"
       >
-        <h2 className="font-serif text-2xl text-[#172554]">Profile, Biography &amp; Philosophy</h2>
+        <h2 className="font-serif text-2xl text-[#4C0519]">Profile, Biography &amp; Philosophy</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-medium text-[#172554] mb-1">Full Name</label>
+            <label className="block text-xs font-medium text-[#4C0519] mb-1">Full Name</label>
             <input
               type="text"
               value={pForm.fullName}
               onChange={(e) => setPForm({ ...pForm, fullName: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
           <div>
-            <label className="block text-xs font-medium text-[#172554] mb-1">Professional Title</label>
+            <label className="block text-xs font-medium text-[#4C0519] mb-1">Professional Title</label>
             <input
               type="text"
               value={pForm.title}
               onChange={(e) => setPForm({ ...pForm, title: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
           <div>
-            <label className="block text-xs font-medium text-[#172554] mb-1">Location</label>
+            <label className="block text-xs font-medium text-[#4C0519] mb-1">Location</label>
             <input
               type="text"
               value={pForm.location}
               onChange={(e) => setPForm({ ...pForm, location: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
           <div>
-            <label className="block text-xs font-medium text-[#172554] mb-1">Email</label>
+            <label className="block text-xs font-medium text-[#4C0519] mb-1">Email</label>
             <input
               type="email"
               value={pForm.email}
               onChange={(e) => setPForm({ ...pForm, email: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
           <div>
-            <label className="block text-xs font-medium text-[#172554] mb-1">Phone</label>
+            <label className="block text-xs font-medium text-[#4C0519] mb-1">Phone</label>
             <input
               type="text"
               value={pForm.phone}
               onChange={(e) => setPForm({ ...pForm, phone: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
           <div>
-            <label className="block text-xs font-medium text-[#172554] mb-1">Tagline</label>
+            <label className="block text-xs font-medium text-[#4C0519] mb-1">Tagline</label>
             <input
               type="text"
               value={pForm.tagline}
               onChange={(e) => setPForm({ ...pForm, tagline: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
         </div>
@@ -323,77 +323,77 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-[#172554] mb-1">Professional Summary (CV &amp; Intro)</label>
+          <label className="block text-xs font-medium text-[#4C0519] mb-1">Professional Summary (CV &amp; Intro)</label>
           <textarea
             rows={3}
             value={pForm.summary}
             onChange={(e) => setPForm({ ...pForm, summary: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-[#172554] mb-1">Detailed Biography</label>
+          <label className="block text-xs font-medium text-[#4C0519] mb-1">Detailed Biography</label>
           <textarea
             rows={4}
             value={pForm.bio}
             onChange={(e) => setPForm({ ...pForm, bio: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-[#172554] mb-1">Developing Teaching Philosophy</label>
+          <label className="block text-xs font-medium text-[#4C0519] mb-1">Developing Teaching Philosophy</label>
           <textarea
             rows={4}
             value={pForm.teachingPhilosophy}
             onChange={(e) => setPForm({ ...pForm, teachingPhilosophy: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-[#172554] mb-1">Professional Vision</label>
+          <label className="block text-xs font-medium text-[#4C0519] mb-1">Professional Vision</label>
           <textarea
             rows={2}
             value={pForm.professionalVision}
             onChange={(e) => setPForm({ ...pForm, professionalVision: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
-            <label className="block text-xs font-medium text-[#172554] mb-1">
+            <label className="block text-xs font-medium text-[#4C0519] mb-1">
               Personal Values (one per line)
             </label>
             <textarea
               rows={4}
               value={pForm.personalValuesText}
               onChange={(e) => setPForm({ ...pForm, personalValuesText: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
           <div>
-            <label className="block text-xs font-medium text-[#172554] mb-1">
+            <label className="block text-xs font-medium text-[#4C0519] mb-1">
               Future Goals (one per line)
             </label>
             <textarea
               rows={4}
               value={pForm.futureGoalsText}
               onChange={(e) => setPForm({ ...pForm, futureGoalsText: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
           <div>
-            <label className="block text-xs font-medium text-[#172554] mb-1">
+            <label className="block text-xs font-medium text-[#4C0519] mb-1">
               Languages (one per line)
             </label>
             <textarea
               rows={4}
               value={pForm.languagesText}
               onChange={(e) => setPForm({ ...pForm, languagesText: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
         </div>
@@ -401,7 +401,7 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
         <button
           type="submit"
           disabled={savingProfile}
-          className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-[#172554] text-white rounded-md hover:bg-[#1e3170] disabled:opacity-50"
+          className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D] disabled:opacity-50"
         >
           <Save className="w-4 h-4" />
           <span>{savingProfile ? 'Saving...' : 'Save Profile'}</span>
@@ -409,16 +409,16 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
       </form>
 
       {/* Education CRUD */}
-      <div className="bg-white border border-[#172554]/10 rounded-lg p-6 space-y-5">
-        <h2 className="font-serif text-2xl text-[#172554]">Education Records</h2>
-        <div className="divide-y divide-[#172554]/10">
+      <div className="bg-white border border-[#4C0519]/10 rounded-lg p-6 space-y-5">
+        <h2 className="font-serif text-2xl text-[#4C0519]">Education Records</h2>
+        <div className="divide-y divide-[#4C0519]/10">
           {educations.map((edu) => (
             <div key={edu.id} className="py-3 flex items-center justify-between gap-4">
               <div>
-                <p className="font-medium text-sm text-[#172554]">
+                <p className="font-medium text-sm text-[#4C0519]">
                   {edu.degree} — {edu.institution}
                 </p>
-                <p className="text-xs text-[#64748B]">
+                <p className="text-xs text-[#6E5A64]">
                   {edu.startYear} – {edu.isCurrent ? 'Present' : edu.endYear}
                 </p>
               </div>
@@ -436,14 +436,14 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
           ))}
         </div>
 
-        <form onSubmit={handleAddEdu} className="pt-4 border-t border-[#172554]/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <form onSubmit={handleAddEdu} className="pt-4 border-t border-[#4C0519]/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <input
             type="text"
             required
             placeholder="Institution"
             value={newEdu.institution}
             onChange={(e) => setNewEdu({ ...newEdu, institution: e.target.value })}
-            className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
           <input
             type="text"
@@ -451,7 +451,7 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
             placeholder="Degree / Certificate"
             value={newEdu.degree}
             onChange={(e) => setNewEdu({ ...newEdu, degree: e.target.value })}
-            className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
           <input
             type="text"
@@ -459,7 +459,7 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
             placeholder="Start Year (e.g. 2023)"
             value={newEdu.startYear}
             onChange={(e) => setNewEdu({ ...newEdu, startYear: e.target.value })}
-            className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
           <div className="flex gap-2">
             <input
@@ -467,11 +467,11 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
               placeholder="End Year / Present"
               value={newEdu.endYear}
               onChange={(e) => setNewEdu({ ...newEdu, endYear: e.target.value })}
-              className="flex-1 px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="flex-1 px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <button
               type="submit"
-              className="inline-flex items-center gap-1 px-3.5 py-2 text-xs font-medium bg-[#172554] text-white rounded-md"
+              className="inline-flex items-center gap-1 px-3.5 py-2 text-xs font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D]"
             >
               <Plus className="w-3.5 h-3.5" />
               <span>Add</span>
@@ -481,17 +481,17 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
       </div>
 
       {/* Skills CRUD */}
-      <div className="bg-white border border-[#172554]/10 rounded-lg p-6 space-y-5">
-        <h2 className="font-serif text-2xl text-[#172554]">Skills</h2>
+      <div className="bg-white border border-[#4C0519]/10 rounded-lg p-6 space-y-5">
+        <h2 className="font-serif text-2xl text-[#4C0519]">Skills</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {skills.map((skill) => (
             <div
               key={skill.id}
-              className="px-4 py-2.5 bg-[#FAF9F6] border border-[#172554]/10 rounded-md flex items-center justify-between gap-2"
+              className="px-4 py-2.5 bg-[#FFFBF7] border border-[#4C0519]/10 rounded-md flex items-center justify-between gap-2"
             >
               <div>
-                <p className="text-sm font-medium text-[#172554]">{skill.name}</p>
-                <p className="text-xs text-[#64748B]">{skill.category}</p>
+                <p className="text-sm font-medium text-[#4C0519]">{skill.name}</p>
+                <p className="text-xs text-[#6E5A64]">{skill.category}</p>
               </div>
               <button
                 type="button"
@@ -504,14 +504,14 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
           ))}
         </div>
 
-        <form onSubmit={handleAddSkill} className="pt-4 border-t border-[#172554]/10 flex flex-wrap gap-3">
+        <form onSubmit={handleAddSkill} className="pt-4 border-t border-[#4C0519]/10 flex flex-wrap gap-3">
           <input
             type="text"
             required
             placeholder="Skill name"
             value={newSkill.name}
             onChange={(e) => setNewSkill({ ...newSkill, name: e.target.value })}
-            className="flex-1 min-w-[180px] px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="flex-1 min-w-[180px] px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
           <input
             type="text"
@@ -519,11 +519,11 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
             placeholder="Category (Academic, Communication, Digital Tools)"
             value={newSkill.category}
             onChange={(e) => setNewSkill({ ...newSkill, category: e.target.value })}
-            className="w-56 px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-56 px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
           <button
             type="submit"
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium bg-[#172554] text-white rounded-md"
+            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D]"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>Add Skill</span>
@@ -532,19 +532,19 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
       </div>
 
       {/* Training CRUD */}
-      <div className="bg-white border border-[#172554]/10 rounded-lg p-6 space-y-5">
-        <h2 className="font-serif text-2xl text-[#172554]">Professional Training</h2>
+      <div className="bg-white border border-[#4C0519]/10 rounded-lg p-6 space-y-5">
+        <h2 className="font-serif text-2xl text-[#4C0519]">Professional Training</h2>
         <div className="space-y-3">
           {trainings.map((tr) => (
             <div
               key={tr.id}
-              className="p-4 bg-[#FAF9F6] border border-[#172554]/10 rounded-md flex items-start justify-between gap-4"
+              className="p-4 bg-[#FFFBF7] border border-[#4C0519]/10 rounded-md flex items-start justify-between gap-4"
             >
               <div>
-                <p className="font-medium text-sm text-[#172554]">
+                <p className="font-medium text-sm text-[#4C0519]">
                   {tr.title} — {tr.provider} ({tr.duration})
                 </p>
-                <p className="text-xs text-[#64748B] mt-1">{tr.description}</p>
+                <p className="text-xs text-[#6E5A64] mt-1">{tr.description}</p>
               </div>
               <button
                 type="button"
@@ -557,7 +557,7 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
           ))}
         </div>
 
-        <form onSubmit={handleAddTraining} className="pt-4 border-t border-[#172554]/10 space-y-3">
+        <form onSubmit={handleAddTraining} className="pt-4 border-t border-[#4C0519]/10 space-y-3">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <input
               type="text"
@@ -565,7 +565,7 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
               placeholder="Training Title"
               value={newTraining.title}
               onChange={(e) => setNewTraining({ ...newTraining, title: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="text"
@@ -573,7 +573,7 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
               placeholder="Provider (e.g. DigiSkills.pk)"
               value={newTraining.provider}
               onChange={(e) => setNewTraining({ ...newTraining, provider: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="text"
@@ -581,7 +581,7 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
               placeholder="Duration (e.g. 6 Months)"
               value={newTraining.duration}
               onChange={(e) => setNewTraining({ ...newTraining, duration: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
           <textarea
@@ -590,18 +590,18 @@ export function AboutEditor({ profile, educations, skills, trainings }: AboutEdi
             placeholder="Training description"
             value={newTraining.description}
             onChange={(e) => setNewTraining({ ...newTraining, description: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
           <textarea
             rows={2}
             placeholder="Key topics covered (one per line)"
             value={newTraining.highlightsText}
             onChange={(e) => setNewTraining({ ...newTraining, highlightsText: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
           <button
             type="submit"
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium bg-[#172554] text-white rounded-md"
+            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D]"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>Add Training</span>

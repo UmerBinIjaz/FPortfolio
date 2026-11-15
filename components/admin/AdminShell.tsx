@@ -38,14 +38,14 @@ export function AdminShell({ admin, children }: AdminShellProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] flex">
+    <div className="min-h-screen bg-[#FFFBF7] flex">
       {/* Desktop Sidebar */}
-      <aside className="hidden lg:flex lg:w-64 lg:flex-col bg-[#172554] text-[#FAF9F6] shrink-0">
+      <aside className="hidden lg:flex lg:w-64 lg:flex-col bg-[#4C0519] text-[#FFFBF7] shrink-0">
         <div className="px-6 py-5 border-b border-white/10">
           <Link href="/admin/dashboard" className="font-serif text-xl font-semibold text-white">
             Faryal Admin
           </Link>
-          <p className="text-xs text-[#C5A46D] mt-0.5 truncate">{admin.email}</p>
+          <p className="text-xs text-[#F59E0B] mt-0.5 truncate">{admin.email}</p>
         </div>
 
         <nav aria-label="Admin Navigation" className="flex-1 p-4 space-y-1 overflow-y-auto">
@@ -57,8 +57,8 @@ export function AdminShell({ admin, children }: AdminShellProps) {
                 href={item.href}
                 className={`block px-3.5 py-2.5 rounded-md text-sm transition-colors ${
                   active
-                    ? 'bg-white/15 text-white font-medium'
-                    : 'text-slate-300 hover:bg-white/10 hover:text-white'
+                    ? 'bg-[#BE185D] text-white font-medium'
+                    : 'text-[#FDE8EF]/85 hover:bg-white/10 hover:text-white'
                 }`}
               >
                 {item.label}
@@ -70,7 +70,7 @@ export function AdminShell({ admin, children }: AdminShellProps) {
         <div className="p-4 border-t border-white/10 space-y-2">
           <Link
             href="/"
-            className="flex items-center justify-between px-3.5 py-2 text-xs text-slate-300 hover:text-white rounded-md hover:bg-white/10 transition-colors"
+            className="flex items-center justify-between px-3.5 py-2 text-xs text-[#FDE8EF]/85 hover:text-[#F59E0B] rounded-md hover:bg-white/10 transition-colors"
           >
             <span>View Public Site</span>
             <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
@@ -89,28 +89,28 @@ export function AdminShell({ admin, children }: AdminShellProps) {
 
       {/* Main Workspace */}
       <div className="flex-1 min-w-0 flex flex-col">
-        <header className="h-16 bg-white border-b border-[#172554]/10 px-6 flex items-center justify-between gap-4">
+        <header className="h-16 bg-white border-b border-[#4C0519]/10 px-6 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <button
               type="button"
               onClick={() => setMobileNavOpen((v) => !v)}
               aria-label="Toggle admin menu"
-              className="lg:hidden p-2 rounded-md border border-[#172554]/15 text-[#172554]"
+              className="lg:hidden p-2 rounded-md border border-[#4C0519]/15 text-[#4C0519]"
             >
               {mobileNavOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
-            <span className="text-sm font-medium text-[#172554]">
+            <span className="text-sm font-medium text-[#4C0519]">
               {ADMIN_NAV_ITEMS.find((n) => n.href === pathname)?.label || 'Administration'}
             </span>
           </div>
 
-          <div className="flex items-center gap-4 text-xs text-[#64748B]">
+          <div className="flex items-center gap-4 text-xs text-[#6E5A64]">
             <span className="hidden sm:inline">
               {admin.name} · {admin.role}
             </span>
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-[#172554]/15 rounded-md text-[#172554] hover:bg-[#EDE9FE]/50 transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-[#4C0519]/15 rounded-md text-[#4C0519] hover:bg-[#FCE7F3]/50 transition-colors whitespace-nowrap"
             >
               <span>Public Site</span>
               <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
@@ -119,14 +119,14 @@ export function AdminShell({ admin, children }: AdminShellProps) {
         </header>
 
         {mobileNavOpen && (
-          <div className="lg:hidden bg-[#172554] text-white p-4 space-y-1">
+          <div className="lg:hidden bg-[#4C0519] text-white p-4 space-y-1">
             {ADMIN_NAV_ITEMS.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileNavOpen(false)}
                 className={`block px-3.5 py-2 rounded-md text-sm ${
-                  pathname === item.href ? 'bg-white/15 font-medium' : 'text-slate-300'
+                  pathname === item.href ? 'bg-[#BE185D] text-white font-medium' : 'text-[#FDE8EF]/85'
                 }`}
               >
                 {item.label}

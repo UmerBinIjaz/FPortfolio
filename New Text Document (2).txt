@@ -1,0 +1,7 @@
+Database website: https://supabase.com/
+Organization: UmerBinIjaz's Org
+Project Name: Faryal
+Database Password: hnvVE7itDcpacxjv
+Admin Email: faryalgull042@hotmail.com
+Admin Password: Faryalgull@042
+UID: 140bb29e-4ecb-46ea-a522-7bd73969a90a

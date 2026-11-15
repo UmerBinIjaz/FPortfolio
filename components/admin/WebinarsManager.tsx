@@ -173,13 +173,13 @@ export function WebinarsManager({ webinars }: { webinars: AdminWebinarRow[] }) {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
         <div className="relative max-w-sm w-full">
-          <Search className="w-4 h-4 text-[#64748B] absolute left-3 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-[#6E5A64] absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search webinars..."
-            className="w-full pl-9 pr-3 py-2 text-sm bg-white border border-[#172554]/15 rounded-md"
+            className="w-full pl-9 pr-3 py-2 text-sm bg-white border border-[#4C0519]/15 rounded-md"
           />
         </div>
         <button
@@ -189,7 +189,7 @@ export function WebinarsManager({ webinars }: { webinars: AdminWebinarRow[] }) {
             setForm(emptyForm);
             setShowForm(true);
           }}
-          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium bg-[#172554] text-white rounded-md"
+          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D]"
         >
           <Plus className="w-4 h-4" />
           <span>Add Webinar</span>
@@ -197,12 +197,12 @@ export function WebinarsManager({ webinars }: { webinars: AdminWebinarRow[] }) {
       </div>
 
       {showForm && (
-        <form onSubmit={handleSubmit} className="bg-white border border-[#172554]/15 rounded-lg p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="bg-white border border-[#4C0519]/15 rounded-lg p-6 space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="font-serif text-xl text-[#172554]">
+            <h2 className="font-serif text-xl text-[#4C0519]">
               {editingId ? 'Edit Webinar' : 'Record New Webinar'}
             </h2>
-            <button type="button" onClick={() => setShowForm(false)} className="text-xs text-[#64748B]">
+            <button type="button" onClick={() => setShowForm(false)} className="text-xs text-[#6E5A64]">
               Cancel
             </button>
           </div>
@@ -220,7 +220,7 @@ export function WebinarsManager({ webinars }: { webinars: AdminWebinarRow[] }) {
                   slug: editingId ? form.slug : slugify(e.target.value),
                 })
               }
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="text"
@@ -228,7 +228,7 @@ export function WebinarsManager({ webinars }: { webinars: AdminWebinarRow[] }) {
               placeholder="Slug"
               value={form.slug}
               onChange={(e) => setForm({ ...form, slug: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="text"
@@ -236,19 +236,19 @@ export function WebinarsManager({ webinars }: { webinars: AdminWebinarRow[] }) {
               placeholder="Organizer"
               value={form.organizer}
               onChange={(e) => setForm({ ...form, organizer: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="text"
               placeholder="Speaker (optional)"
               value={form.speaker}
               onChange={(e) => setForm({ ...form, speaker: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <select
               value={form.category}
               onChange={(e) => setForm({ ...form, category: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             >
               {WEBINAR_CATEGORIES.map((c) => (
                 <option key={c} value={c}>
@@ -261,14 +261,14 @@ export function WebinarsManager({ webinars }: { webinars: AdminWebinarRow[] }) {
                 type="date"
                 value={form.eventDate}
                 onChange={(e) => setForm({ ...form, eventDate: e.target.value })}
-                className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+                className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
               />
               <input
                 type="text"
                 placeholder="Duration (e.g. 90 mins)"
                 value={form.duration}
                 onChange={(e) => setForm({ ...form, duration: e.target.value })}
-                className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+                className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
               />
             </div>
           </div>
@@ -279,7 +279,7 @@ export function WebinarsManager({ webinars }: { webinars: AdminWebinarRow[] }) {
             placeholder="Webinar description"
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -305,19 +305,19 @@ export function WebinarsManager({ webinars }: { webinars: AdminWebinarRow[] }) {
               placeholder="Topics Discussed (one per line)"
               value={form.topicsText}
               onChange={(e) => setForm({ ...form, topicsText: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <textarea
               rows={3}
               placeholder="Knowledge Gained (one per line)"
               value={form.knowledgeText}
               onChange={(e) => setForm({ ...form, knowledgeText: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
 
-          <div className="pt-3 border-t border-[#172554]/10 space-y-3">
-            <h3 className="font-serif text-base text-[#172554]">
+          <div className="pt-3 border-t border-[#4C0519]/10 space-y-3">
+            <h3 className="font-serif text-base text-[#4C0519]">
               Personal Reflection (What? · So What? · Now What?)
             </h3>
             <textarea
@@ -325,21 +325,21 @@ export function WebinarsManager({ webinars }: { webinars: AdminWebinarRow[] }) {
               placeholder="What? — What was the webinar about?"
               value={form.whatText}
               onChange={(e) => setForm({ ...form, whatText: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <textarea
               rows={2}
               placeholder="So What? — What did I learn and why was it important?"
               value={form.soWhatText}
               onChange={(e) => setForm({ ...form, soWhatText: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <textarea
               rows={2}
               placeholder="Now What? — How can I apply this knowledge?"
               value={form.nowWhatText}
               onChange={(e) => setForm({ ...form, nowWhatText: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
 
@@ -347,7 +347,7 @@ export function WebinarsManager({ webinars }: { webinars: AdminWebinarRow[] }) {
             <select
               value={form.status}
               onChange={(e) => setForm({ ...form, status: e.target.value as PublicationStatus })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             >
               <option value={PublicationStatus.DRAFT}>Draft</option>
               <option value={PublicationStatus.PUBLISHED}>Published</option>
@@ -356,7 +356,7 @@ export function WebinarsManager({ webinars }: { webinars: AdminWebinarRow[] }) {
             <button
               type="submit"
               disabled={saving}
-              className="px-5 py-2 text-sm font-medium bg-[#172554] text-white rounded-md disabled:opacity-50"
+              className="px-5 py-2 text-sm font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D] disabled:opacity-50"
             >
               {saving ? 'Saving...' : 'Save Webinar'}
             </button>
@@ -364,15 +364,15 @@ export function WebinarsManager({ webinars }: { webinars: AdminWebinarRow[] }) {
         </form>
       )}
 
-      <div className="bg-white border border-[#172554]/10 rounded-lg divide-y divide-[#172554]/10">
+      <div className="bg-white border border-[#4C0519]/10 rounded-lg divide-y divide-[#4C0519]/10">
         {filtered.length === 0 ? (
-          <p className="p-8 text-sm text-center text-[#64748B]">No webinars recorded yet.</p>
+          <p className="p-8 text-sm text-center text-[#6E5A64]">No webinars recorded yet.</p>
         ) : (
           filtered.map((w) => (
             <div key={w.id} className="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <p className="font-medium text-[#172554]">{w.title}</p>
-                <p className="text-xs text-[#64748B]">
+                <p className="font-medium text-[#4C0519]">{w.title}</p>
+                <p className="text-xs text-[#6E5A64]">
                   {w.organizer} · {w.category} · {w.status}
                 </p>
               </div>
@@ -380,14 +380,14 @@ export function WebinarsManager({ webinars }: { webinars: AdminWebinarRow[] }) {
                 <button
                   type="button"
                   onClick={() => handleToggle(w)}
-                  className="px-3 py-1.5 text-xs border border-[#172554]/15 rounded"
+                  className="px-3 py-1.5 text-xs border border-[#4C0519]/15 rounded"
                 >
                   {w.status === PublicationStatus.PUBLISHED ? 'Unpublish' : 'Publish'}
                 </button>
                 <button
                   type="button"
                   onClick={() => startEdit(w)}
-                  className="p-1.5 rounded border border-[#172554]/15 text-[#172554]"
+                  className="p-1.5 rounded border border-[#4C0519]/15 text-[#4C0519]"
                 >
                   <Edit3 className="w-4 h-4" />
                 </button>

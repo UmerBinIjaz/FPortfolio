@@ -8,7 +8,7 @@ export function ResumeActions({ originalCvUrl }: { originalCvUrl?: string | null
     <div className="flex flex-wrap items-center gap-3 no-print">
       <a
         href="/api/resume/pdf"
-        className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-[#172554] text-white rounded-md hover:bg-[#1e3170] transition-colors whitespace-nowrap"
+        className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold bg-[#BE185D] text-white rounded-full hover:bg-[#9D174D] shadow-sm transition-colors whitespace-nowrap"
       >
         <Download className="w-4 h-4" aria-hidden="true" />
         <span>Download CV (PDF)</span>
@@ -16,9 +16,9 @@ export function ResumeActions({ originalCvUrl }: { originalCvUrl?: string | null
       <button
         type="button"
         onClick={() => window.print()}
-        className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-white border border-[#172554]/20 text-[#172554] rounded-md hover:bg-[#EDE9FE]/50 transition-colors whitespace-nowrap"
+        className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold bg-white border border-[#F59E0B] text-[#4C0519] rounded-full hover:bg-[#FEF3C7]/60 transition-colors whitespace-nowrap"
       >
-        <Printer className="w-4 h-4" aria-hidden="true" />
+        <Printer className="w-4 h-4 text-[#B45309]" aria-hidden="true" />
         <span>Print CV</span>
       </button>
       {originalCvUrl && (
@@ -26,9 +26,9 @@ export function ResumeActions({ originalCvUrl }: { originalCvUrl?: string | null
           href={originalCvUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-[#172554] hover:text-[#C5A46D] transition-colors whitespace-nowrap"
+          className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-[#4C0519] hover:text-[#BE185D] transition-colors whitespace-nowrap"
         >
-          <FileText className="w-4 h-4" aria-hidden="true" />
+          <FileText className="w-4 h-4 text-[#F59E0B]" aria-hidden="true" />
           <span>View Original PDF</span>
         </a>
       )}

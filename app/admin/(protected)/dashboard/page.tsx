@@ -61,8 +61,8 @@ export default async function AdminDashboardPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="font-serif text-3xl text-[#172554]">Dashboard Overview</h1>
-        <p className="text-sm text-[#64748B] mt-1">
+        <h1 className="font-serif text-3xl text-[#4C0519]">Dashboard Overview</h1>
+        <p className="text-sm text-[#6E5A64] mt-1">
           Live content statistics and recent activity from Neon PostgreSQL.
         </p>
       </div>
@@ -73,46 +73,46 @@ export default async function AdminDashboardPage() {
           <Link
             key={stat.label}
             href={stat.href}
-            className="bg-white border border-[#172554]/10 rounded-lg p-5 hover:border-[#C5A46D] transition-colors"
+            className="bg-white border border-[#4C0519]/10 rounded-lg p-5 hover:border-[#F59E0B] transition-colors"
           >
-            <p className="text-xs text-[#64748B] mb-1">{stat.label}</p>
-            <p className="font-serif text-3xl text-[#172554] tabular-nums">{stat.value}</p>
-            <p className="text-xs text-[#64748B] mt-1">{stat.sub}</p>
+            <p className="text-xs text-[#6E5A64] mb-1">{stat.label}</p>
+            <p className="font-serif text-3xl text-[#4C0519] tabular-nums">{stat.value}</p>
+            <p className="text-xs text-[#6E5A64] mt-1">{stat.sub}</p>
           </Link>
         ))}
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-white border border-[#172554]/10 rounded-lg p-6">
-        <h2 className="font-serif text-xl text-[#172554] mb-4">Quick Actions</h2>
+      <div className="bg-white border border-[#4C0519]/10 rounded-lg p-6">
+        <h2 className="font-serif text-xl text-[#4C0519] mb-4">Quick Actions</h2>
         <div className="flex flex-wrap gap-3">
           <Link
             href="/admin/portfolio"
-            className="px-4 py-2 text-xs font-medium bg-[#172554] text-white rounded-md hover:bg-[#1e3170]"
+            className="px-4 py-2 text-xs font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D]"
           >
             Add Portfolio Project
           </Link>
           <Link
             href="/admin/webinars"
-            className="px-4 py-2 text-xs font-medium border border-[#172554]/20 text-[#172554] rounded-md hover:bg-[#EDE9FE]/50"
+            className="px-4 py-2 text-xs font-medium border border-[#4C0519]/20 text-[#4C0519] rounded-md hover:bg-[#FCE7F3]/50"
           >
             Record Webinar
           </Link>
           <Link
             href="/admin/teaching-practicum"
-            className="px-4 py-2 text-xs font-medium border border-[#172554]/20 text-[#172554] rounded-md hover:bg-[#EDE9FE]/50"
+            className="px-4 py-2 text-xs font-medium border border-[#4C0519]/20 text-[#4C0519] rounded-md hover:bg-[#FCE7F3]/50"
           >
             Create Lesson Plan
           </Link>
           <Link
             href="/admin/reflections"
-            className="px-4 py-2 text-xs font-medium border border-[#172554]/20 text-[#172554] rounded-md hover:bg-[#EDE9FE]/50"
+            className="px-4 py-2 text-xs font-medium border border-[#4C0519]/20 text-[#4C0519] rounded-md hover:bg-[#FCE7F3]/50"
           >
             Write Reflection
           </Link>
           <Link
             href="/admin/media"
-            className="px-4 py-2 text-xs font-medium border border-[#172554]/20 text-[#172554] rounded-md hover:bg-[#EDE9FE]/50"
+            className="px-4 py-2 text-xs font-medium border border-[#4C0519]/20 text-[#4C0519] rounded-md hover:bg-[#FCE7F3]/50"
           >
             Open Media Library
           </Link>
@@ -121,21 +121,21 @@ export default async function AdminDashboardPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Recent Content Activity */}
-        <div className="bg-white border border-[#172554]/10 rounded-lg p-6">
-          <h2 className="font-serif text-xl text-[#172554] mb-4">Recent Content Activity</h2>
+        <div className="bg-white border border-[#4C0519]/10 rounded-lg p-6">
+          <h2 className="font-serif text-xl text-[#4C0519] mb-4">Recent Content Activity</h2>
           {recentActivities.length === 0 ? (
-            <p className="text-sm text-[#64748B]">No recent edits logged yet.</p>
+            <p className="text-sm text-[#6E5A64]">No recent edits logged yet.</p>
           ) : (
-            <div className="divide-y divide-[#172554]/10">
+            <div className="divide-y divide-[#4C0519]/10">
               {recentActivities.map((act) => (
                 <div key={act.id} className="py-3 flex items-start justify-between gap-4 text-sm">
                   <div className="min-w-0">
-                    <p className="font-medium text-[#172554] truncate">{act.entityTitle}</p>
-                    <p className="text-xs text-[#64748B]">
+                    <p className="font-medium text-[#4C0519] truncate">{act.entityTitle}</p>
+                    <p className="text-xs text-[#6E5A64]">
                       {act.entityType} · {act.action}
                     </p>
                   </div>
-                  <span className="text-xs text-[#64748B] shrink-0 tabular-nums">
+                  <span className="text-xs text-[#6E5A64] shrink-0 tabular-nums">
                     {formatDate(act.createdAt)}
                   </span>
                 </div>
@@ -145,28 +145,28 @@ export default async function AdminDashboardPage() {
         </div>
 
         {/* Recent Contact Messages */}
-        <div className="bg-white border border-[#172554]/10 rounded-lg p-6">
+        <div className="bg-white border border-[#4C0519]/10 rounded-lg p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="font-serif text-xl text-[#172554]">Recent Messages</h2>
-            <Link href="/admin/messages" className="text-xs font-medium text-[#172554] hover:text-[#C5A46D]">
+            <h2 className="font-serif text-xl text-[#4C0519]">Recent Messages</h2>
+            <Link href="/admin/messages" className="text-xs font-medium text-[#BE185D] hover:text-[#4C0519]">
               View Inbox →
             </Link>
           </div>
           {recentMessages.length === 0 ? (
-            <p className="text-sm text-[#64748B]">No contact messages received yet.</p>
+            <p className="text-sm text-[#6E5A64]">No contact messages received yet.</p>
           ) : (
-            <div className="divide-y divide-[#172554]/10">
+            <div className="divide-y divide-[#4C0519]/10">
               {recentMessages.map((msg) => (
                 <div key={msg.id} className="py-3 flex items-start justify-between gap-4 text-sm">
                   <div className="min-w-0">
-                    <p className="font-medium text-[#172554] truncate">
+                    <p className="font-medium text-[#4C0519] truncate">
                       {msg.fullName} — {msg.subject}
                     </p>
-                    <p className="text-xs text-[#64748B] truncate">
+                    <p className="text-xs text-[#6E5A64] truncate">
                       {msg.status} · {msg.email}
                     </p>
                   </div>
-                  <span className="text-xs text-[#64748B] shrink-0 tabular-nums">
+                  <span className="text-xs text-[#6E5A64] shrink-0 tabular-nums">
                     {formatDate(msg.createdAt)}
                   </span>
                 </div>

@@ -114,7 +114,7 @@ export function PracticumBrowser({
       <div
         role="tablist"
         aria-label="Teaching Practicum Sections"
-        className="flex flex-wrap gap-2 border-b border-[#172554]/10 pb-4"
+        className="flex flex-wrap gap-2 border-b border-[#4C0519]/10 pb-4"
       >
         {tabs.map((tab) => {
           const active = activeTab === tab.id;
@@ -127,8 +127,8 @@ export function PracticumBrowser({
               onClick={() => setActiveTab(tab.id)}
               className={`px-4 py-2 text-sm font-medium rounded-md transition-colors whitespace-nowrap ${
                 active
-                  ? 'bg-[#172554] text-white'
-                  : 'bg-white border border-[#172554]/15 text-[#252525] hover:bg-[#EDE9FE]/60'
+                  ? 'bg-[#BE185D] text-white'
+                  : 'bg-white border border-[#4C0519]/15 text-[#271C22] hover:bg-[#FCE7F3]/60'
               }`}
             >
               {tab.label}
@@ -155,11 +155,11 @@ export function PracticumBrowser({
                 return (
                   <div
                     key={plan.id}
-                    className="bg-white border border-[#172554]/10 rounded-lg p-6 md:p-8"
+                    className="bg-white border border-[#4C0519]/10 rounded-lg p-6 md:p-8"
                   >
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                       <div>
-                        <div className="flex flex-wrap items-center gap-2 text-xs text-[#64748B] mb-2">
+                        <div className="flex flex-wrap items-center gap-2 text-xs text-[#6E5A64] mb-2">
                           <span>{plan.subjectTopic}</span>
                           <span aria-hidden="true">·</span>
                           <span>{plan.targetLevel}</span>
@@ -168,7 +168,7 @@ export function PracticumBrowser({
                           <span aria-hidden="true">·</span>
                           <span>{plan.methodology}</span>
                         </div>
-                        <h3 className="font-serif text-2xl text-[#172554]">{plan.title}</h3>
+                        <h3 className="font-serif text-2xl text-[#4C0519]">{plan.title}</h3>
                       </div>
                       <div className="flex items-center gap-3 shrink-0">
                         {plan.documentUrl && (
@@ -176,7 +176,7 @@ export function PracticumBrowser({
                             href={plan.documentUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium border border-[#172554]/20 text-[#172554] rounded-md hover:bg-[#EDE9FE]/50 whitespace-nowrap"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium border border-[#4C0519]/20 text-[#4C0519] rounded-md hover:bg-[#FCE7F3]/50 whitespace-nowrap"
                           >
                             <Download className="w-3.5 h-3.5" aria-hidden="true" />
                             <span>{plan.documentName || 'Download Plan'}</span>
@@ -185,7 +185,7 @@ export function PracticumBrowser({
                         <button
                           type="button"
                           onClick={() => setExpandedPlanId(isOpen ? null : plan.id)}
-                          className="px-4 py-2 text-xs font-medium bg-[#172554] text-white rounded-md hover:bg-[#1e3170] whitespace-nowrap"
+                          className="px-4 py-2 text-xs font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D] whitespace-nowrap"
                         >
                           {isOpen ? 'Hide Details' : 'View Full Plan'}
                         </button>
@@ -193,16 +193,16 @@ export function PracticumBrowser({
                     </div>
 
                     {isOpen && (
-                      <div className="mt-6 pt-6 border-t border-[#172554]/10 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                      <div className="mt-6 pt-6 border-t border-[#4C0519]/10 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
                         {plan.learningObjectives.length > 0 && (
                           <div>
-                            <h4 className="font-serif text-base text-[#172554] mb-2">
+                            <h4 className="font-serif text-base text-[#4C0519] mb-2">
                               Learning Objectives
                             </h4>
-                            <ul className="space-y-1.5 text-[#252525]/85">
+                            <ul className="space-y-1.5 text-[#271C22]/85">
                               {plan.learningObjectives.map((obj) => (
                                 <li key={obj} className="flex items-start gap-2">
-                                  <span className="text-[#C5A46D]" aria-hidden="true">•</span>
+                                  <span className="text-[#F59E0B] font-bold" aria-hidden="true">•</span>
                                   <span>{obj}</span>
                                 </li>
                               ))}
@@ -211,13 +211,13 @@ export function PracticumBrowser({
                         )}
                         {plan.requiredResources.length > 0 && (
                           <div>
-                            <h4 className="font-serif text-base text-[#172554] mb-2">
+                            <h4 className="font-serif text-base text-[#4C0519] mb-2">
                               Required Resources
                             </h4>
-                            <ul className="space-y-1.5 text-[#252525]/85">
+                            <ul className="space-y-1.5 text-[#271C22]/85">
                               {plan.requiredResources.map((res) => (
                                 <li key={res} className="flex items-start gap-2">
-                                  <span className="text-[#C5A46D]" aria-hidden="true">•</span>
+                                  <span className="text-[#F59E0B] font-bold" aria-hidden="true">•</span>
                                   <span>{res}</span>
                                 </li>
                               ))}
@@ -225,51 +225,51 @@ export function PracticumBrowser({
                           </div>
                         )}
                         <div>
-                          <h4 className="font-serif text-base text-[#172554] mb-1.5">
+                          <h4 className="font-serif text-base text-[#4C0519] mb-1.5">
                             Warm-Up Activity
                           </h4>
-                          <p className="text-[#64748B] leading-relaxed whitespace-pre-line">
+                          <p className="text-[#6E5A64] leading-relaxed whitespace-pre-line">
                             {plan.warmUpActivity}
                           </p>
                         </div>
                         <div>
-                          <h4 className="font-serif text-base text-[#172554] mb-1.5">
+                          <h4 className="font-serif text-base text-[#4C0519] mb-1.5">
                             Lesson Development
                           </h4>
-                          <p className="text-[#64748B] leading-relaxed whitespace-pre-line">
+                          <p className="text-[#6E5A64] leading-relaxed whitespace-pre-line">
                             {plan.lessonDevelopment}
                           </p>
                         </div>
                         <div>
-                          <h4 className="font-serif text-base text-[#172554] mb-1.5">
+                          <h4 className="font-serif text-base text-[#4C0519] mb-1.5">
                             Student Activities
                           </h4>
-                          <p className="text-[#64748B] leading-relaxed whitespace-pre-line">
+                          <p className="text-[#6E5A64] leading-relaxed whitespace-pre-line">
                             {plan.studentActivities}
                           </p>
                         </div>
                         <div>
-                          <h4 className="font-serif text-base text-[#172554] mb-1.5">
+                          <h4 className="font-serif text-base text-[#4C0519] mb-1.5">
                             Assessment
                           </h4>
-                          <p className="text-[#64748B] leading-relaxed whitespace-pre-line">
+                          <p className="text-[#6E5A64] leading-relaxed whitespace-pre-line">
                             {plan.assessment}
                           </p>
                         </div>
                         {plan.homework && (
                           <div>
-                            <h4 className="font-serif text-base text-[#172554] mb-1.5">Homework</h4>
-                            <p className="text-[#64748B] leading-relaxed whitespace-pre-line">
+                            <h4 className="font-serif text-base text-[#4C0519] mb-1.5">Homework</h4>
+                            <p className="text-[#6E5A64] leading-relaxed whitespace-pre-line">
                               {plan.homework}
                             </p>
                           </div>
                         )}
                         {plan.teacherReflection && (
                           <div>
-                            <h4 className="font-serif text-base text-[#172554] mb-1.5">
+                            <h4 className="font-serif text-base text-[#4C0519] mb-1.5">
                               Teacher Reflection
                             </h4>
-                            <p className="text-[#64748B] leading-relaxed whitespace-pre-line">
+                            <p className="text-[#6E5A64] leading-relaxed whitespace-pre-line">
                               {plan.teacherReflection}
                             </p>
                           </div>
@@ -299,7 +299,7 @@ export function PracticumBrowser({
               {demonstrations.map((demo) => (
                 <div
                   key={demo.id}
-                  className="bg-white border border-[#172554]/10 rounded-lg overflow-hidden p-6 space-y-4"
+                  className="bg-white border border-[#4C0519]/10 rounded-lg overflow-hidden p-6 space-y-4"
                 >
                   {demo.videoUrl ? (
                     <video
@@ -319,7 +319,7 @@ export function PracticumBrowser({
                     />
                   )}
                   <div>
-                    <div className="flex items-center gap-2 text-xs text-[#64748B] mb-1">
+                    <div className="flex items-center gap-2 text-xs text-[#6E5A64] mb-1">
                       <span>{demo.topic}</span>
                       {demo.demonstrationDate && (
                         <>
@@ -328,15 +328,15 @@ export function PracticumBrowser({
                         </>
                       )}
                     </div>
-                    <h3 className="font-serif text-xl text-[#172554] mb-2">{demo.title}</h3>
-                    <p className="text-sm text-[#64748B] leading-relaxed">{demo.description}</p>
+                    <h3 className="font-serif text-xl text-[#4C0519] mb-2">{demo.title}</h3>
+                    <p className="text-sm text-[#6E5A64] leading-relaxed">{demo.description}</p>
                   </div>
                   {demo.externalVideoUrl && (
                     <a
                       href={demo.externalVideoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-[#172554] hover:text-[#C5A46D]"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-[#BE185D] hover:text-[#4C0519]"
                     >
                       <PlayCircle className="w-4 h-4" aria-hidden="true" />
                       <span>Watch External Video</span>
@@ -361,8 +361,8 @@ export function PracticumBrowser({
                 onClick={() => setMaterialCategory(cat)}
                 className={`px-3.5 py-2 text-xs font-medium rounded-md transition-colors whitespace-nowrap ${
                   materialCategory === cat
-                    ? 'bg-[#172554] text-white'
-                    : 'bg-white border border-[#172554]/15 text-[#252525] hover:bg-[#EDE9FE]/60'
+                    ? 'bg-[#BE185D] text-white'
+                    : 'bg-white border border-[#4C0519]/15 text-[#271C22] hover:bg-[#FCE7F3]/60'
                 }`}
               >
                 {cat}
@@ -382,10 +382,10 @@ export function PracticumBrowser({
               {filteredResources.map((res) => (
                 <div
                   key={res.id}
-                  className="bg-white border border-[#172554]/10 rounded-lg p-6 flex flex-col justify-between"
+                  className="bg-white border border-[#4C0519]/10 rounded-lg p-6 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex items-center gap-2 text-xs text-[#64748B] mb-2">
+                    <div className="flex items-center gap-2 text-xs text-[#6E5A64] mb-2">
                       <span>{res.category}</span>
                       {res.targetLevel && (
                         <>
@@ -394,18 +394,18 @@ export function PracticumBrowser({
                         </>
                       )}
                     </div>
-                    <h3 className="font-serif text-xl text-[#172554] mb-2">{res.title}</h3>
-                    <p className="text-sm text-[#64748B] leading-relaxed mb-4">
+                    <h3 className="font-serif text-xl text-[#4C0519] mb-2">{res.title}</h3>
+                    <p className="text-sm text-[#6E5A64] leading-relaxed mb-4">
                       {res.description}
                     </p>
                   </div>
-                  <div className="flex flex-wrap gap-3 pt-3 border-t border-[#172554]/10">
+                  <div className="flex flex-wrap gap-3 pt-3 border-t border-[#4C0519]/10">
                     {res.fileUrl && (
                       <a
                         href={res.fileUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-[#172554] hover:text-[#C5A46D]"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-[#BE185D] hover:text-[#4C0519]"
                       >
                         <FileText className="w-4 h-4" aria-hidden="true" />
                         <span>Download {res.fileType || 'Resource'}</span>
@@ -416,7 +416,7 @@ export function PracticumBrowser({
                         href={res.externalUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-[#172554] hover:text-[#C5A46D]"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-[#BE185D] hover:text-[#4C0519]"
                       >
                         <ExternalLink className="w-4 h-4" aria-hidden="true" />
                         <span>Open Link</span>
@@ -433,29 +433,38 @@ export function PracticumBrowser({
       {/* TAB 4: Teaching Methodologies */}
       {activeTab === 'methodologies' && (
         <div className="space-y-6">
-          <div className="bg-[#EDE9FE]/55 border border-[#172554]/10 rounded-lg p-5 text-sm text-[#252525]/85">
+          <div className="bg-gradient-to-r from-[#FCE7F3]/75 via-[#FFFBF7] to-[#FEF3C7]/75 border border-[#BE185D]/20 rounded-xl p-5 text-sm text-[#271C22]/85">
             Transparent distinction: Methodologies below are categorized as{' '}
-            <strong className="text-[#172554]">Studied Approach</strong> while in academic preparation, and automatically display as{' '}
-            <strong className="text-[#172554]">Implemented in Lesson Plan</strong> once documented in a published lesson plan.
+            <strong className="text-[#4C0519]">Studied Approach</strong> while in academic preparation, and automatically display as{' '}
+            <strong className="text-[#4C0519]">Implemented in Lesson Plan</strong> once documented in a published lesson plan.
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {TEACHING_METHODOLOGIES.map((m) => {
+            {TEACHING_METHODOLOGIES.map((m, idx) => {
               const isImplemented = Array.from(implementedMethodologies).some((val) =>
                 val.includes(m.name.toLowerCase().split(' (')[0])
               );
+              const barColors = [
+                'bg-[#BE185D]',
+                'bg-[#F59E0B]',
+                'bg-[#7E22CE]',
+                'bg-[#0F766E]',
+              ];
               return (
                 <div
                   key={m.name}
-                  className="bg-white border border-[#172554]/10 rounded-lg p-6"
+                  className="bg-white border border-[#4C0519]/12 rounded-xl overflow-hidden shadow-xs hover:shadow-md transition-shadow"
                 >
-                  <div className="flex items-center justify-between gap-3 text-xs mb-2">
-                    <span className="text-[#C5A46D] font-medium">
-                      {isImplemented ? 'Implemented in Lesson Plan' : m.status}
-                    </span>
-                    <BookOpen className="w-4 h-4 text-[#64748B]" aria-hidden="true" />
+                  <div className={`h-1.5 w-full ${barColors[idx % barColors.length]}`} />
+                  <div className="p-6">
+                    <div className="flex items-center justify-between gap-3 text-xs mb-2">
+                      <span className="text-[#BE185D] font-semibold">
+                        {isImplemented ? 'Implemented in Lesson Plan' : m.status}
+                      </span>
+                      <BookOpen className="w-4 h-4 text-[#F59E0B]" aria-hidden="true" />
+                    </div>
+                    <h3 className="font-serif text-xl text-[#4C0519] mb-2">{m.name}</h3>
+                    <p className="text-sm text-[#6E5A64] leading-relaxed">{m.summary}</p>
                   </div>
-                  <h3 className="font-serif text-xl text-[#172554] mb-2">{m.name}</h3>
-                  <p className="text-sm text-[#64748B] leading-relaxed">{m.summary}</p>
                 </div>
               );
             })}
@@ -478,10 +487,10 @@ export function PracticumBrowser({
               {reflections.map((ref) => (
                 <article
                   key={ref.id}
-                  className="bg-white border border-[#172554]/10 rounded-lg p-7 space-y-5"
+                  className="bg-white border border-[#4C0519]/10 rounded-lg p-7 space-y-5"
                 >
                   <div>
-                    <div className="flex flex-wrap items-center gap-2 text-xs text-[#64748B] mb-2">
+                    <div className="flex flex-wrap items-center gap-2 text-xs text-[#6E5A64] mb-2">
                       <span>{ref.context}</span>
                       {ref.methodologyStudied && (
                         <>
@@ -496,25 +505,25 @@ export function PracticumBrowser({
                         </>
                       )}
                     </div>
-                    <h3 className="font-serif text-2xl text-[#172554]">{ref.title}</h3>
+                    <h3 className="font-serif text-2xl text-[#4C0519]">{ref.title}</h3>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-[#172554]/10 text-sm">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-[#4C0519]/10 text-sm">
                     <div>
-                      <h4 className="font-serif text-base text-[#172554] mb-1.5">What?</h4>
-                      <p className="text-[#64748B] leading-relaxed whitespace-pre-line">
+                      <h4 className="font-serif text-base text-[#4C0519] mb-1.5">What?</h4>
+                      <p className="text-[#6E5A64] leading-relaxed whitespace-pre-line">
                         {ref.whatText}
                       </p>
                     </div>
                     <div>
-                      <h4 className="font-serif text-base text-[#172554] mb-1.5">So What?</h4>
-                      <p className="text-[#64748B] leading-relaxed whitespace-pre-line">
+                      <h4 className="font-serif text-base text-[#4C0519] mb-1.5">So What?</h4>
+                      <p className="text-[#6E5A64] leading-relaxed whitespace-pre-line">
                         {ref.soWhatText}
                       </p>
                     </div>
                     <div>
-                      <h4 className="font-serif text-base text-[#172554] mb-1.5">Now What?</h4>
-                      <p className="text-[#64748B] leading-relaxed whitespace-pre-line">
+                      <h4 className="font-serif text-base text-[#4C0519] mb-1.5">Now What?</h4>
+                      <p className="text-[#6E5A64] leading-relaxed whitespace-pre-line">
                         {ref.nowWhatText}
                       </p>
                     </div>

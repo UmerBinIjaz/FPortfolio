@@ -13,8 +13,8 @@ export default async function AdminWebinarsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-serif text-3xl text-[#172554]">Webinars &amp; Reflections</h1>
-        <p className="text-sm text-[#64748B] mt-1">
+        <h1 className="font-serif text-3xl text-[#4C0519]">Webinars &amp; Reflections</h1>
+        <p className="text-sm text-[#6E5A64] mt-1">
           Document attended webinars, structured learning reflections, and completion certificates.
         </p>
       </div>

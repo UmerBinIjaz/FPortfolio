@@ -36,15 +36,15 @@ export function ShareArticleBar({ title }: { title: string }) {
       <button
         type="button"
         onClick={handleCopy}
-        className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium bg-white border border-[#172554]/15 rounded-md text-[#172554] hover:bg-[#EDE9FE]/50 transition-colors"
+        className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium bg-white border border-[#4C0519]/20 rounded-md text-[#4C0519] hover:bg-[#FCE7F3]/50 transition-colors"
       >
-        {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+        {copied ? <Check className="w-3.5 h-3.5 text-[#F59E0B]" /> : <Copy className="w-3.5 h-3.5" />}
         <span>{copied ? 'Copied' : 'Copy Link'}</span>
       </button>
       <button
         type="button"
         onClick={handleShare}
-        className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium bg-[#172554] text-white rounded-md hover:bg-[#1e3170] transition-colors"
+        className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D] transition-colors"
       >
         <Share2 className="w-3.5 h-3.5" />
         <span>Share</span>

@@ -158,7 +158,7 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
             setForm(emptyForm);
             setShowForm(true);
           }}
-          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium bg-[#172554] text-white rounded-md"
+          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D]"
         >
           <Plus className="w-4 h-4" />
           <span>Add Symposium Record</span>
@@ -166,12 +166,12 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
       </div>
 
       {showForm && (
-        <form onSubmit={handleSubmit} className="bg-white border border-[#172554]/15 rounded-lg p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="bg-white border border-[#4C0519]/15 rounded-lg p-6 space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="font-serif text-xl text-[#172554]">
+            <h2 className="font-serif text-xl text-[#4C0519]">
               {editingId ? 'Edit Symposium' : 'New Symposium Record'}
             </h2>
-            <button type="button" onClick={() => setShowForm(false)} className="text-xs text-[#64748B]">
+            <button type="button" onClick={() => setShowForm(false)} className="text-xs text-[#6E5A64]">
               Cancel
             </button>
           </div>
@@ -183,7 +183,7 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
               placeholder="Event Title"
               value={form.eventTitle}
               onChange={(e) => setForm({ ...form, eventTitle: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="text"
@@ -191,7 +191,7 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
               placeholder="Organizer"
               value={form.organizer}
               onChange={(e) => setForm({ ...form, organizer: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="text"
@@ -205,7 +205,7 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
                   slug: editingId ? form.slug : slugify(e.target.value),
                 })
               }
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="text"
@@ -213,7 +213,7 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
               placeholder="URL Slug"
               value={form.slug}
               onChange={(e) => setForm({ ...form, slug: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="text"
@@ -221,7 +221,7 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
               placeholder="Presentation Topic"
               value={form.presentationTopic}
               onChange={(e) => setForm({ ...form, presentationTopic: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="text"
@@ -229,7 +229,7 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
               placeholder="Participation Role (e.g. Presenter, Participant)"
               value={form.participationRole}
               onChange={(e) => setForm({ ...form, participationRole: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="text"
@@ -237,13 +237,13 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
               placeholder="Location or Online Format"
               value={form.formatOrLocation}
               onChange={(e) => setForm({ ...form, formatOrLocation: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="date"
               value={form.eventDate}
               onChange={(e) => setForm({ ...form, eventDate: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
 
@@ -253,7 +253,7 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
             placeholder="Presentation Description"
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -279,14 +279,14 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
               placeholder="External Video URL (optional)"
               value={form.externalVideoUrl}
               onChange={(e) => setForm({ ...form, externalVideoUrl: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="text"
               placeholder="Slides File Label (optional)"
               value={form.slidesName}
               onChange={(e) => setForm({ ...form, slidesName: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
 
@@ -296,14 +296,14 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
               placeholder="Learning Outcomes (one per line)"
               value={form.outcomesText}
               onChange={(e) => setForm({ ...form, outcomesText: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <textarea
               rows={3}
               placeholder="Gallery Image/Media URLs (one per line)"
               value={form.mediaUrlsText}
               onChange={(e) => setForm({ ...form, mediaUrlsText: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
 
@@ -312,7 +312,7 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
             placeholder="Feedback Received (optional)"
             value={form.feedback}
             onChange={(e) => setForm({ ...form, feedback: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
 
           <textarea
@@ -320,14 +320,14 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
             placeholder="Personal Reflection"
             value={form.personalReflection}
             onChange={(e) => setForm({ ...form, personalReflection: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
 
           <div className="flex items-center gap-4">
             <select
               value={form.status}
               onChange={(e) => setForm({ ...form, status: e.target.value as PublicationStatus })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             >
               <option value={PublicationStatus.DRAFT}>Draft</option>
               <option value={PublicationStatus.PUBLISHED}>Published</option>
@@ -336,7 +336,7 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
             <button
               type="submit"
               disabled={saving}
-              className="px-5 py-2 text-sm font-medium bg-[#172554] text-white rounded-md disabled:opacity-50"
+              className="px-5 py-2 text-sm font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D] disabled:opacity-50"
             >
               {saving ? 'Saving...' : 'Save Symposium'}
             </button>
@@ -344,15 +344,15 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
         </form>
       )}
 
-      <div className="bg-white border border-[#172554]/10 rounded-lg divide-y divide-[#172554]/10">
+      <div className="bg-white border border-[#4C0519]/10 rounded-lg divide-y divide-[#4C0519]/10">
         {symposiums.length === 0 ? (
-          <p className="p-8 text-sm text-center text-[#64748B]">No symposium records yet.</p>
+          <p className="p-8 text-sm text-center text-[#6E5A64]">No symposium records yet.</p>
         ) : (
           symposiums.map((s) => (
             <div key={s.id} className="p-5 flex items-center justify-between gap-4">
               <div>
-                <p className="font-medium text-[#172554]">{s.presentationTitle}</p>
-                <p className="text-xs text-[#64748B]">
+                <p className="font-medium text-[#4C0519]">{s.presentationTitle}</p>
+                <p className="text-xs text-[#6E5A64]">
                   {s.eventTitle} · {s.organizer} · {s.status}
                 </p>
               </div>
@@ -368,14 +368,14 @@ export function SymposiumManager({ symposiums }: { symposiums: AdminSymposiumRow
                     });
                     router.refresh();
                   }}
-                  className="px-3 py-1.5 text-xs border border-[#172554]/15 rounded"
+                  className="px-3 py-1.5 text-xs border border-[#4C0519]/15 rounded"
                 >
                   {s.status === PublicationStatus.PUBLISHED ? 'Unpublish' : 'Publish'}
                 </button>
                 <button
                   type="button"
                   onClick={() => startEdit(s)}
-                  className="p-1.5 rounded border border-[#172554]/15 text-[#172554]"
+                  className="p-1.5 rounded border border-[#4C0519]/15 text-[#4C0519]"
                 >
                   <Edit3 className="w-4 h-4" />
                 </button>

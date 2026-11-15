@@ -123,7 +123,7 @@ export function AchievementsManager({ items }: { items: AdminAchievementRow[] })
             setForm(emptyForm);
             setShowForm(true);
           }}
-          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium bg-[#172554] text-white rounded-md"
+          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D]"
         >
           <Plus className="w-4 h-4" />
           <span>Add Achievement / Certificate</span>
@@ -131,12 +131,12 @@ export function AchievementsManager({ items }: { items: AdminAchievementRow[] })
       </div>
 
       {showForm && (
-        <form onSubmit={handleSubmit} className="bg-white border border-[#172554]/15 rounded-lg p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="bg-white border border-[#4C0519]/15 rounded-lg p-6 space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="font-serif text-xl text-[#172554]">
+            <h2 className="font-serif text-xl text-[#4C0519]">
               {editingId ? 'Edit Achievement' : 'New Achievement & Certificate'}
             </h2>
-            <button type="button" onClick={() => setShowForm(false)} className="text-xs text-[#64748B]">
+            <button type="button" onClick={() => setShowForm(false)} className="text-xs text-[#6E5A64]">
               Cancel
             </button>
           </div>
@@ -154,7 +154,7 @@ export function AchievementsManager({ items }: { items: AdminAchievementRow[] })
                   slug: editingId ? form.slug : slugify(e.target.value),
                 })
               }
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="text"
@@ -162,12 +162,12 @@ export function AchievementsManager({ items }: { items: AdminAchievementRow[] })
               placeholder="Issuing Organization (e.g. DigiSkills.pk, Air University)"
               value={form.issuingOrg}
               onChange={(e) => setForm({ ...form, issuingOrg: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <select
               value={form.category}
               onChange={(e) => setForm({ ...form, category: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             >
               {ACHIEVEMENT_CATEGORIES.map((c) => (
                 <option key={c} value={c}>
@@ -179,7 +179,7 @@ export function AchievementsManager({ items }: { items: AdminAchievementRow[] })
               type="date"
               value={form.issueDate}
               onChange={(e) => setForm({ ...form, issueDate: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
 
@@ -189,7 +189,7 @@ export function AchievementsManager({ items }: { items: AdminAchievementRow[] })
             placeholder="Description"
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -207,7 +207,7 @@ export function AchievementsManager({ items }: { items: AdminAchievementRow[] })
               category="Certificates"
             />
             <div>
-              <label className="block text-xs font-medium text-[#172554] mb-1.5">
+              <label className="block text-xs font-medium text-[#4C0519] mb-1.5">
                 Verification URL (optional)
               </label>
               <input
@@ -215,7 +215,7 @@ export function AchievementsManager({ items }: { items: AdminAchievementRow[] })
                 placeholder="https://..."
                 value={form.verificationUrl}
                 onChange={(e) => setForm({ ...form, verificationUrl: e.target.value })}
-                className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+                className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
               />
             </div>
           </div>
@@ -224,7 +224,7 @@ export function AchievementsManager({ items }: { items: AdminAchievementRow[] })
             <select
               value={form.status}
               onChange={(e) => setForm({ ...form, status: e.target.value as PublicationStatus })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             >
               <option value={PublicationStatus.DRAFT}>Draft</option>
               <option value={PublicationStatus.PUBLISHED}>Published</option>
@@ -233,7 +233,7 @@ export function AchievementsManager({ items }: { items: AdminAchievementRow[] })
             <button
               type="submit"
               disabled={saving}
-              className="px-5 py-2 text-sm font-medium bg-[#172554] text-white rounded-md disabled:opacity-50"
+              className="px-5 py-2 text-sm font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D] disabled:opacity-50"
             >
               {saving ? 'Saving...' : 'Save Achievement'}
             </button>
@@ -241,15 +241,15 @@ export function AchievementsManager({ items }: { items: AdminAchievementRow[] })
         </form>
       )}
 
-      <div className="bg-white border border-[#172554]/10 rounded-lg divide-y divide-[#172554]/10">
+      <div className="bg-white border border-[#4C0519]/10 rounded-lg divide-y divide-[#4C0519]/10">
         {items.length === 0 ? (
-          <p className="p-8 text-sm text-center text-[#64748B]">No achievements uploaded yet.</p>
+          <p className="p-8 text-sm text-center text-[#6E5A64]">No achievements uploaded yet.</p>
         ) : (
           items.map((a) => (
             <div key={a.id} className="p-5 flex items-center justify-between gap-4">
               <div>
-                <p className="font-medium text-[#172554]">{a.title}</p>
-                <p className="text-xs text-[#64748B]">
+                <p className="font-medium text-[#4C0519]">{a.title}</p>
+                <p className="text-xs text-[#6E5A64]">
                   {a.issuingOrg} · {a.category} · {a.status}
                 </p>
               </div>
@@ -265,14 +265,14 @@ export function AchievementsManager({ items }: { items: AdminAchievementRow[] })
                     });
                     router.refresh();
                   }}
-                  className="px-3 py-1.5 text-xs border border-[#172554]/15 rounded"
+                  className="px-3 py-1.5 text-xs border border-[#4C0519]/15 rounded"
                 >
                   {a.status === PublicationStatus.PUBLISHED ? 'Unpublish' : 'Publish'}
                 </button>
                 <button
                   type="button"
                   onClick={() => startEdit(a)}
-                  className="p-1.5 rounded border border-[#172554]/15 text-[#172554]"
+                  className="p-1.5 rounded border border-[#4C0519]/15 text-[#4C0519]"
                 >
                   <Edit3 className="w-4 h-4" />
                 </button>

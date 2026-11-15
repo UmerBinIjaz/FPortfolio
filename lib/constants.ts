@@ -1,11 +1,12 @@
 export const SITE_COLORS = {
-  deepNavy: '#172554',
-  softLavender: '#EDE9FE',
-  mutedGold: '#C5A46D',
-  warmOffWhite: '#FAF9F6',
-  charcoal: '#252525',
-  slate: '#64748B',
-} as const;
+  primaryBerry: '#BE185D',
+  accentSaffron: '#F59E0B',
+  deepPlum: '#4C0519',
+  paper: '#FFFBF7',
+  softRose: '#FCE7F3',
+  text: '#271C22',
+  mutedText: '#6E5A64',
+} as const
 
 export const PUBLIC_NAV_LINKS = [
   { href: '/about', label: 'About' },

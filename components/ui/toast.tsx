@@ -48,7 +48,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
           <div
             key={item.id}
             role="status"
-            className="pointer-events-auto bg-white border border-[#172554]/15 rounded-lg shadow-lg p-4 flex items-start gap-3 text-sm"
+            className="pointer-events-auto bg-white border border-[#4C0519]/15 rounded-lg shadow-lg p-4 flex items-start gap-3 text-sm"
           >
             {item.variant === 'success' && (
               <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" aria-hidden="true" />
@@ -57,19 +57,19 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
               <AlertCircle className="w-5 h-5 text-rose-700 shrink-0 mt-0.5" aria-hidden="true" />
             )}
             {item.variant === 'info' && (
-              <Info className="w-5 h-5 text-[#172554] shrink-0 mt-0.5" aria-hidden="true" />
+              <Info className="w-5 h-5 text-[#BE185D] shrink-0 mt-0.5" aria-hidden="true" />
             )}
             <div className="flex-1 min-w-0">
-              <p className="font-medium text-[#172554]">{item.title}</p>
+              <p className="font-medium text-[#4C0519]">{item.title}</p>
               {item.description && (
-                <p className="text-xs text-[#64748B] mt-1 leading-relaxed">{item.description}</p>
+                <p className="text-xs text-[#6E5A64] mt-1 leading-relaxed">{item.description}</p>
               )}
             </div>
             <button
               type="button"
               onClick={() => dismiss(item.id)}
               aria-label="Dismiss notification"
-              className="text-[#64748B] hover:text-[#172554] p-1 rounded"
+              className="text-[#6E5A64] hover:text-[#4C0519] p-1 rounded"
             >
               <X className="w-4 h-4" />
             </button>

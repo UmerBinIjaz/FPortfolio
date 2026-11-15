@@ -76,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
-      <body suppressHydrationWarning className="min-h-screen bg-[#FAF9F6] text-[#252525] antialiased">
+      <body suppressHydrationWarning className="min-h-screen bg-[#FFFBF7] text-[#271C22] antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

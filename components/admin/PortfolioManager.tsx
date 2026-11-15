@@ -165,19 +165,19 @@ export function PortfolioManager({ projects }: { projects: AdminProjectRow[] }) 
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
         <div className="relative max-w-sm w-full">
-          <Search className="w-4 h-4 text-[#64748B] absolute left-3 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-[#6E5A64] absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search projects..."
-            className="w-full pl-9 pr-3 py-2 text-sm bg-white border border-[#172554]/15 rounded-md"
+            className="w-full pl-9 pr-3 py-2 text-sm bg-white border border-[#4C0519]/15 rounded-md"
           />
         </div>
         <button
           type="button"
           onClick={startCreate}
-          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium bg-[#172554] text-white rounded-md hover:bg-[#1e3170]"
+          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D]"
         >
           <Plus className="w-4 h-4" />
           <span>New Portfolio Project</span>
@@ -187,16 +187,16 @@ export function PortfolioManager({ projects }: { projects: AdminProjectRow[] }) 
       {showForm && (
         <form
           onSubmit={handleSubmit}
-          className="bg-white border border-[#172554]/15 rounded-lg p-6 space-y-4"
+          className="bg-white border border-[#4C0519]/15 rounded-lg p-6 space-y-4"
         >
           <div className="flex items-center justify-between">
-            <h2 className="font-serif text-xl text-[#172554]">
+            <h2 className="font-serif text-xl text-[#4C0519]">
               {editingId ? 'Edit Portfolio Project' : 'Create Portfolio Project'}
             </h2>
             <button
               type="button"
               onClick={() => setShowForm(false)}
-              className="text-xs text-[#64748B] hover:text-[#172554]"
+              className="text-xs text-[#6E5A64] hover:text-[#4C0519]"
             >
               Cancel
             </button>
@@ -215,7 +215,7 @@ export function PortfolioManager({ projects }: { projects: AdminProjectRow[] }) 
                   slug: editingId ? form.slug : slugify(e.target.value),
                 })
               }
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="text"
@@ -223,12 +223,12 @@ export function PortfolioManager({ projects }: { projects: AdminProjectRow[] }) 
               placeholder="URL Slug"
               value={form.slug}
               onChange={(e) => setForm({ ...form, slug: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <select
               value={form.category}
               onChange={(e) => setForm({ ...form, category: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             >
               {PORTFOLIO_CATEGORIES.map((c) => (
                 <option key={c} value={c}>
@@ -240,7 +240,7 @@ export function PortfolioManager({ projects }: { projects: AdminProjectRow[] }) 
               type="date"
               value={form.projectDate}
               onChange={(e) => setForm({ ...form, projectDate: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
 
@@ -250,7 +250,7 @@ export function PortfolioManager({ projects }: { projects: AdminProjectRow[] }) 
             placeholder="Concise project summary"
             value={form.summary}
             onChange={(e) => setForm({ ...form, summary: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
 
           <textarea
@@ -259,7 +259,7 @@ export function PortfolioManager({ projects }: { projects: AdminProjectRow[] }) 
             placeholder="Full project description"
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -287,14 +287,14 @@ export function PortfolioManager({ projects }: { projects: AdminProjectRow[] }) 
               placeholder="Document Display Name (optional)"
               value={form.documentName}
               onChange={(e) => setForm({ ...form, documentName: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <input
               type="url"
               placeholder="External Link URL (optional)"
               value={form.externalUrl}
               onChange={(e) => setForm({ ...form, externalUrl: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
 
@@ -304,21 +304,21 @@ export function PortfolioManager({ projects }: { projects: AdminProjectRow[] }) 
               placeholder="Tools & Resources (one per line)"
               value={form.toolsText}
               onChange={(e) => setForm({ ...form, toolsText: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <textarea
               rows={3}
               placeholder="Learning Outcomes (one per line)"
               value={form.outcomesText}
               onChange={(e) => setForm({ ...form, outcomesText: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
             <textarea
               rows={3}
               placeholder="Gallery Image URLs (one per line)"
               value={form.galleryText}
               onChange={(e) => setForm({ ...form, galleryText: e.target.value })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
 
@@ -326,13 +326,13 @@ export function PortfolioManager({ projects }: { projects: AdminProjectRow[] }) 
             <select
               value={form.status}
               onChange={(e) => setForm({ ...form, status: e.target.value as PublicationStatus })}
-              className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             >
               <option value={PublicationStatus.DRAFT}>Draft</option>
               <option value={PublicationStatus.PUBLISHED}>Published</option>
               <option value={PublicationStatus.ARCHIVED}>Archived</option>
             </select>
-            <label className="inline-flex items-center gap-2 text-sm text-[#172554]">
+            <label className="inline-flex items-center gap-2 text-sm text-[#4C0519]">
               <input
                 type="checkbox"
                 checked={form.featured}
@@ -343,7 +343,7 @@ export function PortfolioManager({ projects }: { projects: AdminProjectRow[] }) 
             <button
               type="submit"
               disabled={saving}
-              className="px-5 py-2 text-sm font-medium bg-[#172554] text-white rounded-md hover:bg-[#1e3170] disabled:opacity-50"
+              className="px-5 py-2 text-sm font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D] disabled:opacity-50"
             >
               {saving ? 'Saving...' : 'Save Project'}
             </button>
@@ -352,17 +352,17 @@ export function PortfolioManager({ projects }: { projects: AdminProjectRow[] }) 
       )}
 
       {/* List */}
-      <div className="bg-white border border-[#172554]/10 rounded-lg divide-y divide-[#172554]/10">
+      <div className="bg-white border border-[#4C0519]/10 rounded-lg divide-y divide-[#4C0519]/10">
         {filtered.length === 0 ? (
-          <p className="p-8 text-sm text-center text-[#64748B]">
+          <p className="p-8 text-sm text-center text-[#6E5A64]">
             No portfolio projects yet. Click &ldquo;New Portfolio Project&rdquo; to create one.
           </p>
         ) : (
           filtered.map((p) => (
             <div key={p.id} className="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="min-w-0">
-                <p className="font-medium text-[#172554] truncate">{p.title}</p>
-                <p className="text-xs text-[#64748B]">
+                <p className="font-medium text-[#4C0519] truncate">{p.title}</p>
+                <p className="text-xs text-[#6E5A64]">
                   {p.category} · {p.status}
                   {p.featured ? ' · Featured' : ''}
                 </p>
@@ -378,7 +378,7 @@ export function PortfolioManager({ projects }: { projects: AdminProjectRow[] }) 
                           : PublicationStatus.PUBLISHED,
                     })
                   }
-                  className="px-3 py-1.5 text-xs border border-[#172554]/15 rounded hover:bg-[#EDE9FE]/50"
+                  className="px-3 py-1.5 text-xs border border-[#4C0519]/15 rounded hover:bg-[#FCE7F3]/50"
                 >
                   {p.status === PublicationStatus.PUBLISHED ? 'Unpublish' : 'Publish'}
                 </button>
@@ -388,8 +388,8 @@ export function PortfolioManager({ projects }: { projects: AdminProjectRow[] }) 
                   title="Toggle Featured"
                   className={`p-1.5 rounded border ${
                     p.featured
-                      ? 'border-[#C5A46D] text-[#C5A46D]'
-                      : 'border-[#172554]/15 text-[#64748B]'
+                      ? 'border-[#F59E0B] text-[#F59E0B]'
+                      : 'border-[#4C0519]/15 text-[#6E5A64]'
                   }`}
                 >
                   <Star className="w-4 h-4" />
@@ -397,7 +397,7 @@ export function PortfolioManager({ projects }: { projects: AdminProjectRow[] }) 
                 <button
                   type="button"
                   onClick={() => startEdit(p)}
-                  className="p-1.5 rounded border border-[#172554]/15 text-[#172554] hover:bg-[#EDE9FE]/50"
+                  className="p-1.5 rounded border border-[#4C0519]/15 text-[#4C0519] hover:bg-[#FCE7F3]/50"
                   aria-label="Edit project"
                 >
                   <Edit3 className="w-4 h-4" />

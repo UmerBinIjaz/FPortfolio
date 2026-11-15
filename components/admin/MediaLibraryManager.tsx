@@ -92,10 +92,10 @@ export function MediaLibraryManager({ assets }: { assets: MediaAssetRow[] }) {
   return (
     <div className="space-y-6">
       {/* Upload Bar */}
-      <div className="bg-white border border-[#172554]/10 rounded-lg p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-white border border-[#4C0519]/10 rounded-lg p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h2 className="font-serif text-xl text-[#172554]">Upload to Cloudinary</h2>
-          <p className="text-xs text-[#64748B] mt-1">
+          <h2 className="font-serif text-xl text-[#4C0519]">Upload to Cloudinary</h2>
+          <p className="text-xs text-[#6E5A64] mt-1">
             Supports images (JPG, PNG, WEBP, GIF), PDFs, Word (.doc/.docx), PowerPoint (.ppt/.pptx), and Video (.mp4/.webm).
           </p>
         </div>
@@ -103,7 +103,7 @@ export function MediaLibraryManager({ assets }: { assets: MediaAssetRow[] }) {
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="px-3 py-2 text-xs bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="px-3 py-2 text-xs bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           >
             <option value="General">General</option>
             <option value="Profile">Profile</option>
@@ -125,7 +125,7 @@ export function MediaLibraryManager({ assets }: { assets: MediaAssetRow[] }) {
             type="button"
             disabled={uploading}
             onClick={() => fileInputRef.current?.click()}
-            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-[#172554] text-white rounded-md disabled:opacity-50"
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D] disabled:opacity-50"
           >
             <Upload className="w-4 h-4" />
             <span>{uploading ? 'Uploading...' : 'Select & Upload File'}</span>
@@ -136,13 +136,13 @@ export function MediaLibraryManager({ assets }: { assets: MediaAssetRow[] }) {
       {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
         <div className="relative max-w-sm w-full">
-          <Search className="w-4 h-4 text-[#64748B] absolute left-3 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-[#6E5A64] absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search files..."
-            className="w-full pl-9 pr-3 py-2 text-sm bg-white border border-[#172554]/15 rounded-md"
+            className="w-full pl-9 pr-3 py-2 text-sm bg-white border border-[#4C0519]/15 rounded-md focus:border-[#F59E0B] focus:outline-none"
           />
         </div>
         <div className="flex flex-wrap gap-2">
@@ -154,8 +154,8 @@ export function MediaLibraryManager({ assets }: { assets: MediaAssetRow[] }) {
                 onClick={() => setFilterType(t)}
                 className={`px-3 py-1.5 text-xs font-medium rounded-md ${
                   filterType === t
-                    ? 'bg-[#172554] text-white'
-                    : 'bg-white border border-[#172554]/15 text-[#252525]'
+                    ? 'bg-[#BE185D] text-white'
+                    : 'bg-white border border-[#4C0519]/15 text-[#271C22] hover:bg-[#FCE7F3]/50'
                 }`}
               >
                 {t}
@@ -167,7 +167,7 @@ export function MediaLibraryManager({ assets }: { assets: MediaAssetRow[] }) {
 
       {/* Grid */}
       {filtered.length === 0 ? (
-        <div className="bg-white border border-[#172554]/10 rounded-lg p-10 text-center text-sm text-[#64748B]">
+        <div className="bg-white border border-[#4C0519]/10 rounded-lg p-10 text-center text-sm text-[#6E5A64]">
           No media assets uploaded yet.
         </div>
       ) : (
@@ -175,10 +175,10 @@ export function MediaLibraryManager({ assets }: { assets: MediaAssetRow[] }) {
           {filtered.map((asset) => (
             <div
               key={asset.id}
-              className="bg-white border border-[#172554]/10 rounded-lg overflow-hidden flex flex-col justify-between"
+              className="bg-white border border-[#4C0519]/10 rounded-lg overflow-hidden flex flex-col justify-between"
             >
               <div>
-                <div className="aspect-[16/10] bg-[#EDE9FE]/40 border-b border-[#172554]/10 flex items-center justify-center overflow-hidden">
+                <div className="aspect-[16/10] bg-[#FCE7F3]/40 border-b border-[#4C0519]/10 flex items-center justify-center overflow-hidden">
                   {asset.mediaType === MediaType.IMAGE ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
@@ -189,25 +189,25 @@ export function MediaLibraryManager({ assets }: { assets: MediaAssetRow[] }) {
                     />
                   ) : (
                     <div className="text-center p-4">
-                      <FileText className="w-8 h-8 text-[#172554] mx-auto mb-1" />
-                      <p className="text-xs text-[#64748B]">{asset.mediaType}</p>
+                      <FileText className="w-8 h-8 text-[#BE185D] mx-auto mb-1" />
+                      <p className="text-xs text-[#6E5A64]">{asset.mediaType}</p>
                     </div>
                   )}
                 </div>
                 <div className="p-4">
-                  <p className="font-medium text-sm text-[#172554] truncate">{asset.title}</p>
-                  <p className="text-xs text-[#64748B] mt-1 tabular-nums">
+                  <p className="font-medium text-sm text-[#4C0519] truncate">{asset.title}</p>
+                  <p className="text-xs text-[#6E5A64] mt-1 tabular-nums">
                     {asset.category} · {formatBytes(asset.bytes)} · {formatDate(asset.createdAt)}
                   </p>
                 </div>
               </div>
 
-              <div className="px-4 py-3 border-t border-[#172554]/10 flex items-center justify-between gap-2 text-xs">
+              <div className="px-4 py-3 border-t border-[#4C0519]/10 flex items-center justify-between gap-2 text-xs">
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() => handleCopy(asset.url)}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 border border-[#172554]/15 rounded text-[#172554]"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 border border-[#4C0519]/15 rounded text-[#4C0519] hover:bg-[#FCE7F3]/50"
                   >
                     <Copy className="w-3 h-3" />
                     <span>Copy URL</span>
@@ -216,7 +216,7 @@ export function MediaLibraryManager({ assets }: { assets: MediaAssetRow[] }) {
                     href={asset.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-2.5 py-1 border border-[#172554]/15 rounded text-[#172554]"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 border border-[#4C0519]/15 rounded text-[#4C0519] hover:bg-[#FCE7F3]/50"
                   >
                     <ExternalLink className="w-3 h-3" />
                     <span>Open</span>

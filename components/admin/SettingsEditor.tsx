@@ -85,67 +85,67 @@ export function SettingsEditor({ initialSettings }: SettingsEditorProps) {
     <div className="space-y-8">
       <form
         onSubmit={handleSaveSettings}
-        className="bg-white border border-[#172554]/10 rounded-lg p-6 space-y-5"
+        className="bg-white border border-[#4C0519]/10 rounded-lg p-6 space-y-5"
       >
-        <h2 className="font-serif text-2xl text-[#172554]">General &amp; SEO Settings</h2>
+        <h2 className="font-serif text-2xl text-[#4C0519]">General &amp; SEO Settings</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-medium text-[#172554] mb-1">Site Title</label>
+            <label className="block text-xs font-medium text-[#4C0519] mb-1">Site Title</label>
             <input
               type="text"
               value={form.siteTitle}
               onChange={(e) => setForm({ ...form, siteTitle: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
           <div>
-            <label className="block text-xs font-medium text-[#172554] mb-1">Tagline</label>
+            <label className="block text-xs font-medium text-[#4C0519] mb-1">Tagline</label>
             <input
               type="text"
               value={form.tagline}
               onChange={(e) => setForm({ ...form, tagline: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-[#172554] mb-1">SEO Meta Description</label>
+          <label className="block text-xs font-medium text-[#4C0519] mb-1">SEO Meta Description</label>
           <textarea
             rows={2}
             value={form.metaDescription}
             onChange={(e) => setForm({ ...form, metaDescription: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
-            <label className="block text-xs font-medium text-[#172554] mb-1">Contact Email</label>
+            <label className="block text-xs font-medium text-[#4C0519] mb-1">Contact Email</label>
             <input
               type="email"
               value={form.contactEmail}
               onChange={(e) => setForm({ ...form, contactEmail: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
           <div>
-            <label className="block text-xs font-medium text-[#172554] mb-1">Contact Phone</label>
+            <label className="block text-xs font-medium text-[#4C0519] mb-1">Contact Phone</label>
             <input
               type="text"
               value={form.contactPhone}
               onChange={(e) => setForm({ ...form, contactPhone: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
           <div>
-            <label className="block text-xs font-medium text-[#172554] mb-1">Location</label>
+            <label className="block text-xs font-medium text-[#4C0519] mb-1">Location</label>
             <input
               type="text"
               value={form.location}
               onChange={(e) => setForm({ ...form, location: e.target.value })}
-              className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+              className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
             />
           </div>
         </div>
@@ -156,45 +156,45 @@ export function SettingsEditor({ initialSettings }: SettingsEditorProps) {
             placeholder="LinkedIn URL (optional)"
             value={form.linkedinUrl}
             onChange={(e) => setForm({ ...form, linkedinUrl: e.target.value })}
-            className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
           <input
             type="url"
             placeholder="GitHub URL (optional)"
             value={form.githubUrl}
             onChange={(e) => setForm({ ...form, githubUrl: e.target.value })}
-            className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
           <input
             type="url"
             placeholder="X / Twitter URL (optional)"
             value={form.twitterUrl}
             onChange={(e) => setForm({ ...form, twitterUrl: e.target.value })}
-            className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
           <input
             type="url"
             placeholder="Instagram URL (optional)"
             value={form.instagramUrl}
             onChange={(e) => setForm({ ...form, instagramUrl: e.target.value })}
-            className="px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-[#172554] mb-1">Footer Text</label>
+          <label className="block text-xs font-medium text-[#4C0519] mb-1">Footer Text</label>
           <input
             type="text"
             value={form.footerText}
             onChange={(e) => setForm({ ...form, footerText: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
         </div>
 
         <button
           type="submit"
           disabled={saving}
-          className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-[#172554] text-white rounded-md hover:bg-[#1e3170] disabled:opacity-50"
+          className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D] disabled:opacity-50"
         >
           <Save className="w-4 h-4" />
           <span>{saving ? 'Saving...' : 'Save Website Settings'}</span>
@@ -204,48 +204,48 @@ export function SettingsEditor({ initialSettings }: SettingsEditorProps) {
       {/* Change Admin Password */}
       <form
         onSubmit={handlePasswordChange}
-        className="bg-white border border-[#172554]/10 rounded-lg p-6 space-y-4 max-w-xl"
+        className="bg-white border border-[#4C0519]/10 rounded-lg p-6 space-y-4 max-w-xl"
       >
         <div className="flex items-center gap-2">
-          <KeyRound className="w-5 h-5 text-[#172554]" />
-          <h2 className="font-serif text-xl text-[#172554]">Change Administrator Password</h2>
+          <KeyRound className="w-5 h-5 text-[#4C0519]" />
+          <h2 className="font-serif text-xl text-[#4C0519]">Change Administrator Password</h2>
         </div>
         <div>
-          <label className="block text-xs font-medium text-[#172554] mb-1">Current Password</label>
+          <label className="block text-xs font-medium text-[#4C0519] mb-1">Current Password</label>
           <input
             type="password"
             required
             value={pwForm.currentPassword}
             onChange={(e) => setPwForm({ ...pwForm, currentPassword: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
         </div>
         <div>
-          <label className="block text-xs font-medium text-[#172554] mb-1">New Password (min 8 chars)</label>
+          <label className="block text-xs font-medium text-[#4C0519] mb-1">New Password (min 8 chars)</label>
           <input
             type="password"
             required
             minLength={8}
             value={pwForm.newPassword}
             onChange={(e) => setPwForm({ ...pwForm, newPassword: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
         </div>
         <div>
-          <label className="block text-xs font-medium text-[#172554] mb-1">Confirm New Password</label>
+          <label className="block text-xs font-medium text-[#4C0519] mb-1">Confirm New Password</label>
           <input
             type="password"
             required
             minLength={8}
             value={pwForm.confirmPassword}
             onChange={(e) => setPwForm({ ...pwForm, confirmPassword: e.target.value })}
-            className="w-full px-3 py-2 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md"
+            className="w-full px-3 py-2 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md"
           />
         </div>
         <button
           type="submit"
           disabled={changingPw}
-          className="px-5 py-2.5 text-sm font-medium bg-[#172554] text-white rounded-md hover:bg-[#1e3170] disabled:opacity-50"
+          className="px-5 py-2.5 text-sm font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D] disabled:opacity-50"
         >
           {changingPw ? 'Updating...' : 'Update Password'}
         </button>

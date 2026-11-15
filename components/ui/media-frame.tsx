@@ -23,10 +23,12 @@ export function MediaFrame({
   if (!src || failed) {
     return (
       <div
-        className={`${aspectClass} w-full rounded-md bg-gradient-to-br from-[#EDE9FE] via-[#FAF9F6] to-[#EDE9FE]/60 border border-[#172554]/10 flex flex-col items-center justify-center p-6 text-center ${className}`}
+        className={`${aspectClass} w-full rounded-lg bg-gradient-to-br from-[#FCE7F3] via-[#FEF3C7]/70 to-[#EDE9FE] border border-[#BE185D]/15 flex flex-col items-center justify-center p-6 text-center ${className}`}
       >
-        <BookOpen className="w-6 h-6 text-[#172554]/60 mb-2" aria-hidden="true" />
-        <p className="font-serif text-sm text-[#172554]/80 line-clamp-2">
+        <div className="w-10 h-10 rounded-full bg-white/85 text-[#BE185D] flex items-center justify-center shadow-xs mb-2.5">
+          <BookOpen className="w-5 h-5" aria-hidden="true" />
+        </div>
+        <p className="font-serif text-sm font-medium text-[#4C0519] line-clamp-2">
           {fallbackTitle || alt}
         </p>
       </div>
@@ -34,7 +36,7 @@ export function MediaFrame({
   }
 
   return (
-    <div className={`${aspectClass} w-full overflow-hidden rounded-md bg-[#EDE9FE]/40 border border-[#172554]/10 ${className}`}>
+    <div className={`${aspectClass} w-full overflow-hidden rounded-lg bg-[#FCE7F3]/50 border border-[#BE185D]/15 ${className}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
@@ -42,7 +44,7 @@ export function MediaFrame({
         referrerPolicy="no-referrer"
         loading="lazy"
         onError={() => setFailed(true)}
-        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
       />
     </div>
   );

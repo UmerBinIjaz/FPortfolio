@@ -68,13 +68,13 @@ export function MessagesInbox({ messages }: { messages: AdminMessageRow[] }) {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
         <div className="relative max-w-sm w-full">
-          <Search className="w-4 h-4 text-[#64748B] absolute left-3 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-[#6E5A64] absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search sender, email, or subject..."
-            className="w-full pl-9 pr-3 py-2 text-sm bg-white border border-[#172554]/15 rounded-md"
+            className="w-full pl-9 pr-3 py-2 text-sm bg-white border border-[#4C0519]/15 rounded-md focus:border-[#F59E0B] focus:outline-none"
           />
         </div>
         <div className="flex flex-wrap gap-2">
@@ -86,8 +86,8 @@ export function MessagesInbox({ messages }: { messages: AdminMessageRow[] }) {
                 onClick={() => setStatusFilter(st)}
                 className={`px-3 py-1.5 text-xs font-medium rounded-md ${
                   statusFilter === st
-                    ? 'bg-[#172554] text-white'
-                    : 'bg-white border border-[#172554]/15 text-[#252525]'
+                    ? 'bg-[#BE185D] text-white'
+                    : 'bg-white border border-[#4C0519]/15 text-[#271C22] hover:bg-[#FCE7F3]/50'
                 }`}
               >
                 {st}
@@ -98,27 +98,27 @@ export function MessagesInbox({ messages }: { messages: AdminMessageRow[] }) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <div className="lg:col-span-5 bg-white border border-[#172554]/10 rounded-lg divide-y divide-[#172554]/10 max-h-[600px] overflow-y-auto">
+        <div className="lg:col-span-5 bg-white border border-[#4C0519]/10 rounded-lg divide-y divide-[#4C0519]/10 max-h-[600px] overflow-y-auto">
           {filtered.length === 0 ? (
-            <p className="p-8 text-sm text-center text-[#64748B]">No messages found.</p>
+            <p className="p-8 text-sm text-center text-[#6E5A64]">No messages found.</p>
           ) : (
             filtered.map((m) => (
               <button
                 key={m.id}
                 type="button"
                 onClick={() => setSelected(m)}
-                className={`w-full text-left p-4 hover:bg-[#EDE9FE]/40 transition-colors ${
-                  selected?.id === m.id ? 'bg-[#EDE9FE]/60' : ''
+                className={`w-full text-left p-4 hover:bg-[#FCE7F3]/40 transition-colors ${
+                  selected?.id === m.id ? 'bg-[#FCE7F3]/60' : ''
                 }`}
               >
-                <div className="flex items-center justify-between gap-2 text-xs text-[#64748B] mb-1">
-                  <span className={m.status === MessageStatus.UNREAD ? 'text-[#172554] font-semibold' : ''}>
+                <div className="flex items-center justify-between gap-2 text-xs text-[#6E5A64] mb-1">
+                  <span className={m.status === MessageStatus.UNREAD ? 'text-[#BE185D] font-semibold' : ''}>
                     {m.status}
                   </span>
                   <span className="tabular-nums">{formatDate(m.createdAt)}</span>
                 </div>
-                <p className="font-medium text-sm text-[#172554] truncate">{m.subject}</p>
-                <p className="text-xs text-[#64748B] truncate">
+                <p className="font-medium text-sm text-[#4C0519] truncate">{m.subject}</p>
+                <p className="text-xs text-[#6E5A64] truncate">
                   {m.fullName} ({m.email})
                 </p>
               </button>
@@ -126,17 +126,17 @@ export function MessagesInbox({ messages }: { messages: AdminMessageRow[] }) {
           )}
         </div>
 
-        <div className="lg:col-span-7 bg-white border border-[#172554]/10 rounded-lg p-6">
+        <div className="lg:col-span-7 bg-white border border-[#4C0519]/10 rounded-lg p-6">
           {!selected ? (
-            <p className="text-sm text-[#64748B]">Select a message to read details.</p>
+            <p className="text-sm text-[#6E5A64]">Select a message to read details.</p>
           ) : (
             <div className="space-y-5">
-              <div className="flex flex-wrap items-start justify-between gap-4 pb-4 border-b border-[#172554]/10">
+              <div className="flex flex-wrap items-start justify-between gap-4 pb-4 border-b border-[#4C0519]/10">
                 <div>
-                  <p className="text-xs text-[#64748B] mb-1">
+                  <p className="text-xs text-[#6E5A64] mb-1">
                     From {selected.fullName} · {selected.email} · {formatDate(selected.createdAt)}
                   </p>
-                  <h2 className="font-serif text-2xl text-[#172554]">{selected.subject}</h2>
+                  <h2 className="font-serif text-2xl text-[#4C0519]">{selected.subject}</h2>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   <button
@@ -149,7 +149,7 @@ export function MessagesInbox({ messages }: { messages: AdminMessageRow[] }) {
                           : MessageStatus.READ
                       )
                     }
-                    className="inline-flex items-center gap-1 px-3 py-1.5 text-xs border border-[#172554]/15 rounded-md"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 text-xs border border-[#4C0519]/15 text-[#4C0519] rounded-md hover:bg-[#FCE7F3]/50"
                   >
                     {selected.status === MessageStatus.READ ? (
                       <>
@@ -166,7 +166,7 @@ export function MessagesInbox({ messages }: { messages: AdminMessageRow[] }) {
                   <button
                     type="button"
                     onClick={() => changeStatus(selected, MessageStatus.ARCHIVED)}
-                    className="inline-flex items-center gap-1 px-3 py-1.5 text-xs border border-[#172554]/15 rounded-md"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 text-xs border border-[#4C0519]/15 text-[#4C0519] rounded-md hover:bg-[#FCE7F3]/50"
                   >
                     <Archive className="w-3.5 h-3.5" />
                     <span>Archive</span>
@@ -182,14 +182,14 @@ export function MessagesInbox({ messages }: { messages: AdminMessageRow[] }) {
                 </div>
               </div>
 
-              <div className="text-sm text-[#252525]/90 leading-relaxed whitespace-pre-line">
+              <div className="text-sm text-[#271C22]/90 leading-relaxed whitespace-pre-line">
                 {selected.message}
               </div>
 
-              <div className="pt-4 border-t border-[#172554]/10">
+              <div className="pt-4 border-t border-[#4C0519]/10">
                 <a
                   href={`mailto:${selected.email}?subject=Re: ${encodeURIComponent(selected.subject)}`}
-                  className="inline-block px-4 py-2 text-xs font-medium bg-[#172554] text-white rounded-md"
+                  className="inline-block px-4 py-2 text-xs font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D]"
                 >
                   Reply via Email
                 </a>

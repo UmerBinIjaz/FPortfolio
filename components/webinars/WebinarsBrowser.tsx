@@ -65,17 +65,17 @@ export function WebinarsBrowser({ webinars }: { webinars: WebinarListItem[] }) {
       <div className="space-y-4">
         <div className="flex flex-col md:flex-row gap-4 md:items-center justify-between">
           <div className="relative max-w-md w-full">
-            <Search className="w-4 h-4 text-[#64748B] absolute left-3.5 top-1/2 -translate-y-1/2" aria-hidden="true" />
+            <Search className="w-4 h-4 text-[#6E5A64] absolute left-3.5 top-1/2 -translate-y-1/2" aria-hidden="true" />
             <input
               type="search"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search webinars, organizers, or speakers..."
               aria-label="Search webinars"
-              className="w-full pl-10 pr-4 py-2.5 text-sm bg-white border border-[#172554]/15 rounded-md focus:border-[#172554] focus:outline-none"
+              className="w-full pl-10 pr-4 py-2.5 text-sm bg-white border border-[#4C0519]/15 rounded-md focus:border-[#F59E0B] focus:outline-none"
             />
           </div>
-          <p className="text-xs text-[#64748B] tabular-nums">
+          <p className="text-xs text-[#6E5A64] tabular-nums">
             Showing {filtered.length} of {webinars.length} webinar{webinars.length === 1 ? '' : 's'}
           </p>
         </div>
@@ -86,10 +86,10 @@ export function WebinarsBrowser({ webinars }: { webinars: WebinarListItem[] }) {
               key={cat}
               type="button"
               onClick={() => setCategory(cat)}
-              className={`px-3.5 py-2 text-xs font-medium rounded-md transition-colors whitespace-nowrap ${
+              className={`px-4 py-2 text-xs font-semibold rounded-full transition-colors whitespace-nowrap ${
                 category === cat
-                  ? 'bg-[#172554] text-white'
-                  : 'bg-white border border-[#172554]/15 text-[#252525] hover:bg-[#EDE9FE]/60'
+                  ? 'bg-[#BE185D] text-white shadow-xs'
+                  : 'bg-white border border-[#4C0519]/15 text-[#4C0519] hover:bg-[#FCE7F3]'
               }`}
             >
               {cat}
@@ -106,68 +106,72 @@ export function WebinarsBrowser({ webinars }: { webinars: WebinarListItem[] }) {
         />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-          {filtered.map((webinar) => (
-            <Link
-              key={webinar.id}
-              href={`/webinars/${webinar.slug}`}
-              className="group bg-white border border-[#172554]/10 rounded-lg overflow-hidden hover:border-[#C5A46D] transition-colors flex flex-col"
-            >
-              <div className="p-3 pb-0">
-                <MediaFrame
-                  src={webinar.thumbnailUrl}
-                  alt={webinar.title}
-                  fallbackTitle={webinar.title}
-                />
-              </div>
-              <div className="p-6 flex-1 flex flex-col">
-                <div className="flex flex-wrap items-center gap-2 text-xs text-[#64748B] mb-2">
-                  <span>{webinar.category}</span>
-                  {webinar.eventDate && (
-                    <>
-                      <span aria-hidden="true">·</span>
-                      <span>{formatDate(webinar.eventDate)}</span>
-                    </>
-                  )}
+          {filtered.map((webinar, idx) => {
+            const accents = ['bg-[#BE185D]', 'bg-[#F59E0B]', 'bg-[#7E22CE]', 'bg-[#0F766E]'];
+            return (
+              <Link
+                key={webinar.id}
+                href={`/webinars/${webinar.slug}`}
+                className="group bg-white border border-[#4C0519]/12 rounded-xl overflow-hidden hover:border-[#BE185D] hover:shadow-md transition-all flex flex-col"
+              >
+                <div className={`h-1.5 w-full ${accents[idx % accents.length]}`} />
+                <div className="p-3 pb-0">
+                  <MediaFrame
+                    src={webinar.thumbnailUrl}
+                    alt={webinar.title}
+                    fallbackTitle={webinar.title}
+                  />
                 </div>
-                <h2 className="font-serif text-xl text-[#172554] mb-1.5 group-hover:text-[#C5A46D] transition-colors">
-                  {webinar.title}
-                </h2>
-                <p className="text-xs font-medium text-[#252525]/75 mb-3">
-                  {webinar.organizer}
-                  {webinar.speaker ? ` · Speaker: ${webinar.speaker}` : ''}
-                </p>
-                <p className="text-sm text-[#64748B] line-clamp-3 leading-relaxed">
-                  {webinar.description}
-                </p>
-              </div>
-            </Link>
-          ))}
+                <div className="p-6 flex-1 flex flex-col">
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-[#BE185D] mb-2">
+                    <span>{webinar.category}</span>
+                    {webinar.eventDate && (
+                      <>
+                        <span aria-hidden="true" className="text-[#6E5A64]">·</span>
+                        <span className="text-[#6E5A64]">{formatDate(webinar.eventDate)}</span>
+                      </>
+                    )}
+                  </div>
+                  <h2 className="font-serif text-xl text-[#4C0519] mb-1.5 group-hover:text-[#BE185D] transition-colors">
+                    {webinar.title}
+                  </h2>
+                  <p className="text-xs font-medium text-[#271C22]/75 mb-3">
+                    {webinar.organizer}
+                    {webinar.speaker ? ` · Speaker: ${webinar.speaker}` : ''}
+                  </p>
+                  <p className="text-sm text-[#6E5A64] line-clamp-3 leading-relaxed">
+                    {webinar.description}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       )}
 
       {/* Certificate Gallery */}
       {certificates.length > 0 && (
-        <section className="pt-10 border-t border-[#172554]/10">
+        <section className="pt-10 border-t border-[#4C0519]/10">
           <div className="flex items-center gap-2.5 mb-6">
-            <Award className="w-5 h-5 text-[#C5A46D]" aria-hidden="true" />
-            <h2 className="font-serif text-2xl text-[#172554]">Webinar Certificates</h2>
+            <Award className="w-5 h-5 text-[#F59E0B]" aria-hidden="true" />
+            <h2 className="font-serif text-2xl text-[#4C0519]">Webinar Certificates</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {certificates.map((w) => (
               <div
                 key={`cert-${w.id}`}
-                className="bg-white border border-[#172554]/10 rounded-lg p-5 flex flex-col justify-between gap-4"
+                className="bg-white border border-[#4C0519]/10 rounded-lg p-5 flex flex-col justify-between gap-4"
               >
                 <div>
-                  <p className="text-xs text-[#64748B] mb-1">{w.organizer}</p>
-                  <h3 className="font-serif text-lg text-[#172554]">{w.title}</h3>
+                  <p className="text-xs text-[#6E5A64] mb-1">{w.organizer}</p>
+                  <h3 className="font-serif text-lg text-[#4C0519]">{w.title}</h3>
                 </div>
                 {w.certificateUrl && (
                   <a
                     href={w.certificateUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-[#172554] hover:text-[#C5A46D]"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-[#BE185D] hover:text-[#4C0519]"
                   >
                     <Download className="w-4 h-4" aria-hidden="true" />
                     <span>View / Download Certificate</span>

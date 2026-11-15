@@ -4,19 +4,20 @@
 @theme {
   --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
-  --color-navy: #172554;
-  --color-lavender: #EDE9FE;
-  --color-gold: #C5A46D;
-  --color-cream: #FAF9F6;
-  --color-charcoal: #252525;
-  --color-slate-muted: #64748B;
+  --color-plum: #4C0519;
+  --color-berry: #BE185D;
+  --color-saffron: #F59E0B;
+  --color-rose-tint: #FCE7F3;
+  --color-paper: #FFFBF7;
+  --color-ink: #271C22;
+  --color-plum-muted: #6E5A64;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #FAF9F6;
-    color: #252525;
+    background-color: #FFFBF7;
+    color: #271C22;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -27,20 +28,20 @@
 
   h1, h2, h3, h4 {
     font-family: var(--font-serif);
-    color: #172554;
+    color: #4C0519;
     text-wrap: balance;
   }
 
   body {
     font-family: var(--font-sans);
-    background-color: #FAF9F6;
-    color: #252554;
+    background-color: #FFFBF7;
+    color: #271C22;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
 
   :focus-visible {
-    outline: 2px solid #C5A46D;
+    outline: 2px solid #F59E0B;
     outline-offset: 2px;
   }
 }

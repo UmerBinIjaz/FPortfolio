@@ -77,9 +77,9 @@ export function ContactForm() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="bg-white border border-[#172554]/12 rounded-lg p-7 md:p-9 space-y-5"
+      className="bg-white border border-[#BE185D]/20 rounded-2xl overflow-hidden shadow-xs p-7 md:p-9 space-y-5"
     >
-      <h2 className="font-serif text-2xl text-[#172554]">Send a Message</h2>
+      <h2 className="font-serif text-2xl text-[#4C0519]">Send a Message</h2>
 
       {submitted && (
         <div
@@ -107,14 +107,14 @@ export function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="fullName" className="block text-xs font-medium text-[#172554] mb-1.5">
+          <label htmlFor="fullName" className="block text-xs font-medium text-[#4C0519] mb-1.5">
             Full Name
           </label>
           <input
             id="fullName"
             type="text"
             {...register('fullName')}
-            className="w-full px-3.5 py-2.5 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md focus:border-[#172554] focus:outline-none"
+            className="w-full px-3.5 py-2.5 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md focus:border-[#F59E0B] focus:outline-none"
             placeholder="Your full name"
           />
           {errors.fullName && (
@@ -123,14 +123,14 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-xs font-medium text-[#172554] mb-1.5">
+          <label htmlFor="email" className="block text-xs font-medium text-[#4C0519] mb-1.5">
             Email Address
           </label>
           <input
             id="email"
             type="email"
             {...register('email')}
-            className="w-full px-3.5 py-2.5 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md focus:border-[#172554] focus:outline-none"
+            className="w-full px-3.5 py-2.5 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md focus:border-[#F59E0B] focus:outline-none"
             placeholder="you@example.com"
           />
           {errors.email && (
@@ -140,14 +140,14 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="subject" className="block text-xs font-medium text-[#172554] mb-1.5">
+        <label htmlFor="subject" className="block text-xs font-medium text-[#4C0519] mb-1.5">
           Subject
         </label>
         <input
           id="subject"
           type="text"
           {...register('subject')}
-          className="w-full px-3.5 py-2.5 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md focus:border-[#172554] focus:outline-none"
+          className="w-full px-3.5 py-2.5 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md focus:border-[#F59E0B] focus:outline-none"
           placeholder="Academic inquiry, collaboration, or opportunity"
         />
         {errors.subject && (
@@ -156,14 +156,14 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-xs font-medium text-[#172554] mb-1.5">
+        <label htmlFor="message" className="block text-xs font-medium text-[#4C0519] mb-1.5">
           Message
         </label>
         <textarea
           id="message"
           rows={5}
           {...register('message')}
-          className="w-full px-3.5 py-2.5 text-sm bg-[#FAF9F6] border border-[#172554]/15 rounded-md focus:border-[#172554] focus:outline-none resize-y"
+          className="w-full px-3.5 py-2.5 text-sm bg-[#FFFBF7] border border-[#4C0519]/15 rounded-md focus:border-[#F59E0B] focus:outline-none resize-y"
           placeholder="Write your message here..."
         />
         {errors.message && (
@@ -174,7 +174,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium bg-[#172554] text-white rounded-md hover:bg-[#1e3170] transition-colors disabled:opacity-50"
+        className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium bg-[#BE185D] text-white rounded-md hover:bg-[#9D174D] transition-colors disabled:opacity-50"
       >
         <Send className="w-4 h-4" aria-hidden="true" />
         <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
